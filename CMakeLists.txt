@@ -61,4 +61,11 @@ endforeach()
 target_include_directories(${PROJECT_NAME} PUBLIC ${DEPEN_DIR})
 
 
+# library directory
+add_subdirectory(divlib)
+target_include_directories(${PROJECT_NAME} PUBLIC divlib)
+target_link_libraries(${PROJECT_NAME} PUBLIC mylib)       # library name
+
+
+
 
