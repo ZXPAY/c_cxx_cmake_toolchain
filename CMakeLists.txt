@@ -13,12 +13,18 @@ set(CFLAGS
     -Wall
     -${OPTIMIZATION_FLAGS}
     -fdiagnostics-color=always   # high light the warning or error
+    -lm
+    )
+set(LDFLAGS
+    -lm
     )
 set(DEPEN_DIR
   inc
+  smlib
   )
 
 add_compile_options(${CFLAGS})
+add_link_options(${LDFLAGS})
 
 # Assembly file
 FILE(GLOB ASMSRC src/*.s)

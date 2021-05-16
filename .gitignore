@@ -32,6 +32,7 @@
 *.bin
 *.elf
 
+
 **/cmake-build-debug
 **/CMakeCache.txt
 **/cmake_install.cmake
@@ -56,4 +57,6 @@ lib/*
 bin/*
 test/test_runner
 
+## QT IDE
+*.user
 
