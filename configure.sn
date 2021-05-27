@@ -1,4 +1,4 @@
 echo Configure the Ninja build file
-echo cmake -S . -B ./build -G"Ninja" -DCMAKE_TOOLCHAIN_FILE=utils/gcc-toolchain.cmake -DCMAKE_BUILD_TYPE=Debug
+echo cmake -S . -B ./build -G"Ninja" -DCMAKE_TOOLCHAIN_FILE=utils/gcc-toolchain.cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_DANNYDSP=ON
 cmake -S . -B ./build -G"Ninja" -DCMAKE_TOOLCHAIN_FILE=utils/gcc-toolchain.cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_DANNYDSP=ON
 echo ===================== completed =====================
