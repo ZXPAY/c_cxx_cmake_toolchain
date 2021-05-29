@@ -7,9 +7,9 @@ set(MAIN_FILE main.cpp)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 11)
 set(OPTIMIZATION_FLAGS O3)
-option(BUILD_DANNYDSP OFF)
+option(BUILD_DannyLIB OFF)
 
-set(DANNYDSP_PATH ${CMAKE_CURRENT_SOURCE_DIR}/DannyDSP)
+set(DannyLIB_PATH ${CMAKE_CURRENT_SOURCE_DIR}/DannyLIB)
 
 
 set(CFLAGS
@@ -28,11 +28,11 @@ set(DEPEN_DIR
 add_compile_options(${CFLAGS})
 add_link_options(${LDFLAGS})
 
-if(BUILD_DANNYDSP)
-    add_subdirectory(DannyDSP)
+if(BUILD_DannyLIB)
+    add_subdirectory(DannyLIB)
     set(DEPEN_DIR
         ${DEPEN_DIR}
-        ${DANNYDSP_PATH}/inc
+        ${DannyLIB_PATH}/inc
     )
 endif()
 
@@ -66,7 +66,7 @@ add_subdirectory(divlib)
 target_include_directories(${PROJECT_NAME} PUBLIC divlib)
 target_link_libraries(${PROJECT_NAME} PUBLIC 
     mylib
-    DannyDSP
+    DannyLIB
     m
     )
 

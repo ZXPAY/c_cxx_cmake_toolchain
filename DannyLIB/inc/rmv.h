@@ -28,4 +28,3 @@ float iter_rmv(rmv_t *rmv, float new_x);
 #endif
 
 #endif /* RMV_H */
-

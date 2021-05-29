@@ -1,4 +1,4 @@
-set(LIBNAME DannyDSP)
+set(LIBNAME DannyLIB)
 
 FILE(GLOB CSRC src/*.c)
 FILE(GLOB CXXSRC src/*.cpp)

@@ -9,7 +9,7 @@ foreach(file ${TEST_FILES})
     target_include_directories(${barefile} PUBLIC ${DEPEN_DIR})
     target_link_libraries(${barefile} PUBLIC 
         mylib
-        DannyDSP
+        DannyLIB
         m
     )
 endforeach()
