@@ -4,8 +4,7 @@
 typedef struct _node_t {
     struct _node_t *next;
     void *para;
-}node_t;
-
+} node_t;
 
 #define ITERATE_LINKLIST_BEGIN(head_p, _node_p)      \
     {                                                \
