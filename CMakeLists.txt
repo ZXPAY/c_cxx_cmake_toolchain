@@ -72,3 +72,6 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
 
 # generate the test executable file
 add_subdirectory(test)
+
+# generate the test posix executable file
+add_subdirectory(test_posix)

@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "string.h": "c",
-        "typeinfo": "c",
-        "random": "c",
-        "gl_dblinklist.h": "c",
-        "dblinklist.h": "c"
-    }
-}

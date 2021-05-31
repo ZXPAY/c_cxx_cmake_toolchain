@@ -1,0 +1,16 @@
+FILE(GLOB TEST_FILES
+    ${CMAKE_SOURCE_DIR}/test_posix/*.c
+)
+
+foreach(file ${TEST_FILES})
+    get_filename_component(barefile ${file} NAME_WE)
+    message(STATUS testfile->${barefile})
+    add_executable(${barefile} ${file} ${SOURCE_FILE})
+    target_include_directories(${barefile} PUBLIC ${DEPEN_DIR})
+    target_link_libraries(${barefile} PUBLIC 
+        mylib
+        DannyLIB
+        m
+        rt
+    )
+endforeach()

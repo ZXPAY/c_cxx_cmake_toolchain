@@ -57,6 +57,8 @@ lib/*
 bin/*
 test/test_runner
 
-## QT IDE
+## Qt IDE
 *.user
 
+## Visual Studio Code IDE
+.vscode/*
