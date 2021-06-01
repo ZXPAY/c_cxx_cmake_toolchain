@@ -1,8 +1,14 @@
 #include <stdio.h>
 #include <stdint.h>
 
+#if __x86_64__
+typedef uint64_t address_size_t;
+#else
+typedef uint32_t address_size_t;
+#endif
+
 #define OFFSET_OF(struct_name, struct_field)   \
-    (uint64_t)&((struct_name *)0)->struct_field
+    (address_size_t)&((struct_name *)0)->struct_field
 
 typedef struct _test_struct_t {
     char name[10];
@@ -15,10 +21,10 @@ typedef struct _test_struct_t {
 int main() {
     test_struct_t w;
     printf("strcture address: %p\n", &w);
-    printf("offset name: %ld\n", OFFSET_OF(test_struct_t, name));
-    printf("offset a: %ld, %lx\n", OFFSET_OF(test_struct_t, a), (uint64_t)(&w.a)-OFFSET_OF(test_struct_t, a));
-    printf("offset pi: %ld, %lx\n", OFFSET_OF(test_struct_t, pi), (uint64_t)(&w.pi)-OFFSET_OF(test_struct_t, pi));
-    printf("offset c: %ld, %lx\n", OFFSET_OF(test_struct_t, c), (uint64_t)(&w.c)-OFFSET_OF(test_struct_t, c));
+    printf("offset name: 0x%x\n", (uint32_t)OFFSET_OF(test_struct_t, name));
+    printf("offset a: 0x%x, %p\n", (uint32_t)OFFSET_OF(test_struct_t, a), (&w.a)-OFFSET_OF(test_struct_t, a));
+    printf("offset pi: 0x%x, %p\n", (uint32_t)OFFSET_OF(test_struct_t, pi), (&w.pi)-OFFSET_OF(test_struct_t, pi));
+    printf("offset c: 0x%x, %p\n", (uint32_t)OFFSET_OF(test_struct_t, c), (&w.c)-OFFSET_OF(test_struct_t, c));
 
 }
 

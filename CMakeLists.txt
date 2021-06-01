@@ -8,6 +8,7 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 11)
 set(OPTIMIZATION_FLAGS O3)
 option(BUILD_DannyLIB OFF)
+option(BUILD_x86_32 OFF)
 
 set(DannyLIB_PATH ${CMAKE_CURRENT_SOURCE_DIR}/DannyLIB)
 
@@ -24,6 +25,11 @@ set(DEPEN_DIR
     ${CMAKE_CURRENT_SOURCE_DIR}/inc
     ${CMAKE_CURRENT_SOURCE_DIR}/smlib
     )
+
+if(BUILD_x86_32)
+    set(CFLAGS ${CFLAGS} -m32)
+    set(LDFLAGS ${LDFLAGS} -m32)
+endif()
 
 add_compile_options(${CFLAGS})
 add_link_options(${LDFLAGS})

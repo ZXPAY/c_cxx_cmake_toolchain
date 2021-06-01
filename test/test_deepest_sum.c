@@ -46,13 +46,6 @@ int main () {
     int n7_para = 7;
     dbnode_t n7 = {.left = NULL, .right = NULL, .para = (int *)&n7_para};
 
-    int n8_para = 8;
-    dbnode_t n8 = {.left = NULL, .right = NULL, .para = (int *)&n8_para};
-
-    int n9_para = 9;
-    dbnode_t n9 = {.left = NULL, .right = NULL, .para = (int *)&n9_para};
-
-
     // Link the all node
     // n_head.left = &n1;
     // n1.left = &n2;

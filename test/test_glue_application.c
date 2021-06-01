@@ -3,6 +3,12 @@
 #include <stdint.h>
 #include "gl_dblinklist.h"
 
+#if __x86_64__
+typedef uint64_t address_size_t;
+#else
+typedef uint32_t address_size_t;
+#endif
+
 typedef struct _test_struct_t {
     char name[20];
     int a;
@@ -30,7 +36,7 @@ int main(void) {
     gl_node_t *temp_node;
     test_struct_t *struct_prt;
     ITERATE_GL_TREE_BEGIN(&n0.node, temp_node) {
-        struct_prt = (test_struct_t *)((uint64_t)temp_node - (uint64_t)OFFSET_OF(test_struct_t, node));
+        struct_prt = (test_struct_t *)((address_size_t)temp_node - (address_size_t)OFFSET_OF(test_struct_t, node));
         printf("%s\n", struct_prt->name);
     } ITERATE_GL_TREE_END;
 
