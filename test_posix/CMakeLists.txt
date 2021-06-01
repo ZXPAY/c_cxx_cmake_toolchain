@@ -2,6 +2,7 @@ FILE(GLOB TEST_FILES
     ${CMAKE_SOURCE_DIR}/test_posix/*.c
 )
 
+if(UNIX)
 foreach(file ${TEST_FILES})
     get_filename_component(barefile ${file} NAME_WE)
     message(STATUS testfile->${barefile})
@@ -14,3 +15,4 @@ foreach(file ${TEST_FILES})
         rt
     )
 endforeach()
+endif()
