@@ -3,11 +3,16 @@
 #include <stdint.h>
 #include "gl_dblinklist.h"
 
-#if __x86_64__
-typedef uint64_t address_size_t;
+#if UINTPTR_MAX == 0xffffffff
+    /* 32-bit */
+    typedef uint32_t address_size_t;
+#elif UINTPTR_MAX == 0xffffffffffffffff
+    /* 64-bit */
+    typedef uint64_t address_size_t;
 #else
-typedef uint32_t address_size_t;
+    /* wtf */
 #endif
+
 
 typedef struct _test_struct_t {
     char name[20];
