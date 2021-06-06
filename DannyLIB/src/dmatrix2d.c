@@ -171,14 +171,13 @@ float **mat_adjoint(float **mat, int n) {
 		}
 	}
 
-	return mat_adj;
+	return transposef(mat_adj, n, n);
 }
 
 float **mat_inverse(float **mat, int n) {
     assert(n > 1);
 	float det_val = detf(mat, n, false);
 	float **mat_inv = mat_adjoint(mat, n);
-	mat_inv = transposef(mat_inv, n, n);
 	float det_val_inv = 1 / det_val;
 	for(int i=0;i<n;i++) {
 		for(int j=0;j<n;j++) {
