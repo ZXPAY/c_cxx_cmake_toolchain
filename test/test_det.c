@@ -25,7 +25,7 @@ int main() {
 
     printf("matrix: \n");
     print_matrixf(test_matrix, 3, 3);
-    printf("determinent of matrix: %.2f\n", det_22_33(test_matrix, 3));
+    printf("determinent of matrix: %.2f\n", detf(test_matrix, 3, 0));
     printf("answer should be 70.\n");
 
     float **test_matrix2 = (float **)malloc(sizeof(float *)*4);
