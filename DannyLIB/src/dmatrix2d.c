@@ -124,7 +124,7 @@ static int cnt = 0;
 static float **save_free_address[MAX_ITER_DET_MATRIX];
 
 float detf(float **mat, int n, int isCofator) {
-	int D = 0; // Initialize result
+	float D = 0; // Initialize result
  
     if(1 == n) {
         return mat[0][0];
