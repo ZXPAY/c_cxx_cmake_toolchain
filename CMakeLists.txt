@@ -84,3 +84,6 @@ add_subdirectory(test_posix)
 
 # generate the leetcode executable file
 add_subdirectory(leetcode)
+
+# generate the test matrix executable file
+add_subdirectory(test_matrix)
