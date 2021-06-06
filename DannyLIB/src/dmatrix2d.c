@@ -163,10 +163,17 @@ float **mat_adjoint(float **mat, int n) {
 	float **mat_adj = create_matrixf(n, n);
 	float **temp_conf = create_matrixf(n-1, n-1);
 	float sign = 1;
+	int flag = false;
+	if(!(n & 1)) {
+		flag = true;
+	}
 	for(int i=0;i<n;i++) {
 		for(int j=0;j<n;j++) {
 			mat_cofactor(mat, temp_conf, i, j, n);
 			mat_adj[i][j] = detf(temp_conf, n-1, false) * sign;
+			sign *= -1;
+		}
+		if(flag) {
 			sign *= -1;
 		}
 	}
