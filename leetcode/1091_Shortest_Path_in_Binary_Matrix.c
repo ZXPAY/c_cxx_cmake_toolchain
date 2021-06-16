@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
 
 /*
@@ -28,29 +29,27 @@ The length of a clear path is the number of visited cells of this path.
 //     {1,1,0},
 //     {1,1,1}
 // };
-const int test_grid[3][3] = {   // answer 4
-    {0,0,0},
-    {0,1,0},
-    {0,0,0}
-};
-
-// const int test_grid[6][6] = {   // answer 14
-//     {0,1,1,0,0,0},
-//     {0,1,0,1,1,0},
-//     {0,1,1,0,1,0},
-//     {0,0,0,1,1,0},
-//     {1,1,1,1,1,0},
-//     {1,1,1,1,1,0},
+// const int test_grid[3][3] = {   // answer 4
+//     {0,0,0},
+//     {0,1,0},
+//     {0,0,0}
 // };
 
-#define N  3
+const int test_grid[6][6] = {   // answer 14
+    {0,1,1,0,0,0},
+    {0,1,0,1,1,0},
+    {0,1,1,0,1,0},
+    {0,0,0,1,1,0},
+    {1,1,1,1,1,0},
+    {1,1,1,1,1,0},
+};
+
+#define N  6
 
 
 typedef struct _pos_t {
     int r;
     int c;
-    int distance;
-    _pos_t *last_pos;
 } pos_t;
 typedef struct _save_pos {
     pos_t *pos;
@@ -87,85 +86,6 @@ void pop_pos(save_pos_t *sv_pos, int *prow, int *pcol) {
 void clean_pos(save_pos_t *sv_pos) {
     sv_pos->len = 0;
     free(sv_pos->pos);
-}
-
-void find_short(save_pos_t *sv_pos, int **grid, int row, int col, int gridSize, int distance, int *p_min_distance) {
-    printf("=> %d, %d, distance: %d\n", row, col, distance);
-
-    if(row+1 < gridSize && col+1 < gridSize) {
-        if(grid[row+1][col+1] != 1) {    
-            if(!isInpos(sv_pos, row+1, col+1)) {
-                save_pos(sv_pos, row+1, col+1);
-                find_short(sv_pos, grid, row+1, col+1, gridSize, distance+1, p_min_distance);
-            }
-        }
-    } 
-    if(row-1 >= 0 && col-1 >= 0) {
-        if(grid[row-1][col-1] != 1) {      
-            if(!isInpos(sv_pos, row-1, col-1)) {
-                save_pos(sv_pos, row-1, col-1);
-                find_short(sv_pos, grid, row-1, col-1, gridSize, distance+1, p_min_distance);
-            }
-        }
-    }
-
-    if(row+1 < gridSize && col-1 >= 0) {
-        if(grid[row+1][col-1] != 1) {     
-            if(!isInpos(sv_pos, row+1, col-1)) {
-                save_pos(sv_pos, row+1, col-1);
-                find_short(sv_pos, grid, row+1, col-1, gridSize, distance+1, p_min_distance);
-            }
-        }
-    }
-    if(row-1 >= 0 && col+1 < gridSize) {
-        if(grid[row-1][col+1] != 1) {    
-            if(!isInpos(sv_pos, row-1, col+1)) {
-                save_pos(sv_pos, row-1, col+1);
-                find_short(sv_pos, grid, row-1, col+1, gridSize, distance+1, p_min_distance);
-            }
-        }
-    }
-
-    if(row+1 < gridSize) {
-        if(grid[row+1][col] != 1) {
-            if(!isInpos(sv_pos, row+1, col)) {
-                save_pos(sv_pos, row+1, col);
-                find_short(sv_pos, grid, row+1, col, gridSize, distance+1, p_min_distance);
-            }
-        }
-    }
-    if(row-1 >= 0) {
-        if(grid[row-1][col] != 1) {      
-            if(!isInpos(sv_pos, row-1, col)) {
-                save_pos(sv_pos, row-1, col);
-                find_short(sv_pos, grid, row-1, col, gridSize, distance+1, p_min_distance);
-            }
-        }
-    }
-    if(col+1 < gridSize) {
-        if(grid[row][col+1] != 1) {   
-            if(!isInpos(sv_pos, row, col+1)) {
-                save_pos(sv_pos, row, col+1);
-                find_short(sv_pos, grid, row, col+1, gridSize, distance+1, p_min_distance);
-            }
-        }
-    }
-    if(col-1 >= 0) {
-        if(grid[row][col-1] != 1) {    
-            if(!isInpos(sv_pos, row, col-1)) {
-                save_pos(sv_pos, row, col-1);
-                find_short(sv_pos, grid, row, col-1, gridSize, distance+1, p_min_distance);
-            }
-        }
-    }
-
-
-    if(row == gridSize-1 && col == gridSize-1) {
-        if(distance < *p_min_distance) {
-            *p_min_distance = distance;
-            clean_pos(sv_pos);
-        }
-    }
 }
 
 save_pos_t *search_nodes(int **grid, int row, int col, int gridSize) {
@@ -241,12 +161,7 @@ save_pos_t *search_nodes(int **grid, int row, int col, int gridSize) {
 }
 
 int bfs_find_short(int **grid, int gridSize) {
-    int end_flag = true;
-    int lastr = 0, lastc = 0;
     int r = 0, c = 0;
-    int distance = 0;
-    int minus_distance = 0;
-    int timeout_cnt = 0;
     save_pos_t seen = {
         .len = 0,
         .pos = NULL
@@ -257,6 +172,9 @@ int bfs_find_short(int **grid, int gridSize) {
     };
     save_pos(&seen, 0, 0);
     save_pos(&sv_pos, 0, 0);
+    int *hash_distance = (int *)malloc(sizeof(int)*gridSize*gridSize);
+    memset(hash_distance, 0, sizeof(int)*gridSize*gridSize);
+    hash_distance[0] = 1;
 
     // implement Dijkstra’s Shortest Path Algorithm
     while(sv_pos.len > 0) {
@@ -264,37 +182,26 @@ int bfs_find_short(int **grid, int gridSize) {
         save_pos_t *nodes = search_nodes(grid, r, c, gridSize);
 
         for(int i=0;i<nodes->len;i++) {
-            // printf(">>%d, %d\n", nodes->pos[i].r, nodes->pos[i].c);
             if(!isInpos(&seen, nodes->pos[i].r, nodes->pos[i].c)) {
                 save_pos(&sv_pos, nodes->pos[i].r, nodes->pos[i].c);
                 save_pos(&seen, nodes->pos[i].r, nodes->pos[i].c);
+                hash_distance[nodes->pos[i].r*gridSize+nodes->pos[i].c] = hash_distance[r*gridSize+c] + 1;
             }
         }
-        printf("%d, %d\n", r, c);
+        free(nodes);
     }
-    return distance;
+    for(int i=0;i<gridSize*gridSize;i++) {
+        printf("hash_distance[%d]: %d\n", i, hash_distance[i]);
+    }
+    if(hash_distance[gridSize*gridSize-1] == 0) {
+        return -1;
+    }
+    return hash_distance[gridSize*gridSize-1];
 }
 
 int shortestPathBinaryMatrix(int** grid, int gridSize, int* gridColSize) {
-    // save_pos_t sv_pos = {
-    //     .len = 0,
-    //     .pos = NULL
-    // };
-    // save_pos(&sv_pos, 0, 0);
-
-    // if(grid[0][0] == 1) {
-    //     return -1;
-    // }
-    // int p_min_distance = __INT_MAX__;
-    // find_short(&sv_pos, grid, 0, 0, gridSize, 1, &p_min_distance);
-    // for(int i=0;i<sv_pos.len;i++) {
-    //     printf(">>%d, %d\n", sv_pos.pos[i].r, sv_pos.pos[i].c);
-    // }
-    // if(p_min_distance == __INT_MAX__) return -1;
-    // return p_min_distance;
-
     // Using BFS (Breadth-First Search)
-    
+    if(grid[0][0] == 1) return -1;
     int dis = bfs_find_short(grid, gridSize);
 
     return dis;
@@ -303,7 +210,7 @@ int shortestPathBinaryMatrix(int** grid, int gridSize, int* gridColSize) {
 int main() {
     printf("start \n");
 
-    int **grid = (int *)malloc(N*sizeof(int));
+    int **grid = (int **)malloc(N*sizeof(int));
     for(int i=0;i<N;i++) grid[i] = (int *)malloc(N*sizeof(int));
 
     for(int i=0;i<N;i++) {
