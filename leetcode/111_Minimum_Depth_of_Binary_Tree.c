@@ -65,11 +65,11 @@ int main() {
         .val = 5,
     };
 
-    struct TreeNode node6 = {
-        .left = NULL,
-        .right = NULL,
-        .val = 6,
-    };
+    // struct TreeNode node6 = {
+    //     .left = NULL,
+    //     .right = NULL,
+    //     .val = 6,
+    // };
 
     head.left = &node1;
     node1.left = &node5;
