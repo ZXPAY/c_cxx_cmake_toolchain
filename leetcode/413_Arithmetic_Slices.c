@@ -16,12 +16,12 @@ A subarray is a contiguous subsequence of the array.
  
 */
 
-// arithmetic   counter
-// 3 -> 1
-// 4 -> 3
-// 5 -> 6
-// 6 -> 10
-// 7 -> 15
+// arithmetic subsequece num   counter
+// 3           ->                 1
+// 4           ->                 3
+// 5           ->                 6
+// 6           ->                 10
+// 7           ->                 15
 
 // int test_num[] = {1, 2, 3, 4};  // answer is 3
 // int test_num[] = {1, 2, 3, 4, 5, 6, 7};  // answer is 10
