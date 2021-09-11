@@ -7,7 +7,7 @@ set(MAIN_FILE main.cpp)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 11)
 set(OPTIMIZATION_FLAGS O3)
-option(BUILD_DannyLIB OFF)
+option(BUILD_Posix OFF)
 option(BUILD_x86_32 OFF)
 
 set(DannyLIB_PATH ${CMAKE_CURRENT_SOURCE_DIR}/DannyLIB)
@@ -34,13 +34,13 @@ endif()
 add_compile_options(${CFLAGS})
 add_link_options(${LDFLAGS})
 
-if(BUILD_DannyLIB)
-    add_subdirectory(DannyLIB)
-    set(DEPEN_DIR
-        ${DEPEN_DIR}
-        ${DannyLIB_PATH}/inc
-    )
-endif()
+
+add_subdirectory(DannyLIB)
+set(DEPEN_DIR
+    ${DEPEN_DIR}
+    ${DannyLIB_PATH}/inc
+)
+
 
 # Assembly file
 FILE(GLOB ASMSRC src/*.s)
@@ -79,11 +79,15 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
 # generate the test executable file
 add_subdirectory(test)
 
+
 # generate the test posix executable file
-add_subdirectory(test_posix)
+if(BUILD_Posix)
+    add_subdirectory(test_posix)
+endif()
 
 # generate the leetcode executable file
 add_subdirectory(leetcode)
 
 # generate the test matrix executable file
 add_subdirectory(test_matrix)
+
