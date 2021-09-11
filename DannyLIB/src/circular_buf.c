@@ -51,7 +51,7 @@ uint8_t circular_buf_pop(circular_buf_t *circular_buf, uint8_t *data_p, uint8_t 
     return  0;
 }
 
-uint16_t circular_buf_get_count(circular_buf_t *circular_buf) {
+inline uint16_t circular_buf_get_count(circular_buf_t *circular_buf) {
     return circular_buf->count;
 }
 
