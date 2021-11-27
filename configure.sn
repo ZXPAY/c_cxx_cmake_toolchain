@@ -1,4 +1,4 @@
 echo Configure the Ninja build file
-echo cmake -S . -B ./build -G"Ninja" -DCMAKE_TOOLCHAIN_FILE=utils/gcc-toolchain.cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_DannyLIB=ON -DBUILD_x86_32=ON
-cmake -S . -B ./build -G"Ninja" -DCMAKE_TOOLCHAIN_FILE=utils/gcc-toolchain.cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_DannyLIB=OFF -DBUILD_x86_32=ON
+echo cmake -S . -B ./build -G"Ninja" -DCMAKE_TOOLCHAIN_FILE=utils/gcc-toolchain.cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_DannyLIB=ON -DBUILD_x86_32=ON -DBUILD_Posix=ON
+cmake -S . -B ./build -G"Ninja" -DCMAKE_TOOLCHAIN_FILE=utils/gcc-toolchain.cmake -DCMAKE_BUILD_TYPE=Debug -DBUILD_DannyLIB=OFF -DBUILD_x86_32=ON -DBUILD_Posix=ON
 echo ===================== completed =====================

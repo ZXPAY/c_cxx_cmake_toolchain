@@ -1,6 +1,8 @@
 FILE(GLOB TEST_FILES
-    ${CMAKE_SOURCE_DIR}/test_posix/*.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/*.c
 )
+
+message(STATUS "${TEST_FILES}")
 
 if(UNIX)
 foreach(file ${TEST_FILES})
@@ -9,6 +11,7 @@ foreach(file ${TEST_FILES})
     add_executable(${barefile} ${file} ${SOURCE_FILE})
     target_include_directories(${barefile} PUBLIC ${DEPEN_DIR})
     target_link_libraries(${barefile} PUBLIC 
+        pthread
         mylib
         DannyLIB
         m
