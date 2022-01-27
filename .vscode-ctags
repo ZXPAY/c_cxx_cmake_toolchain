@@ -1,0 +1,537 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	//
+A	test/test_sm.c	/^    A,$/;"	e	enum:STATE	file:
+ADD_H	inc/add.h	/^#define ADD_H$/;"	d
+ARCHITECTURE_ID	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#   define ARCHITECTURE_ID /;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define ARCHITECTURE_ID /;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define ARCHITECTURE_ID$/;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define ARCHITECTURE_ID /;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define ARCHITECTURE_ID /;"	d	file:
+ARCHITECTURE_ID	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define ARCHITECTURE_ID$/;"	d	file:
+B	test/test_sm.c	/^    B,$/;"	e	enum:STATE	file:
+C	test/test_sm.c	/^    C$/;"	e	enum:STATE	file:
+CANDIES	leetcode/1103_Distribute_Candies_to_People.c	/^#define CANDIES /;"	d	file:
+CIRCULAR_BUF_H	DannyLIB/inc/circular_buf.h	/^#define CIRCULAR_BUF_H$/;"	d
+COL	leetcode/1893_Check_if_All_the_Integers_in_a_Range_Are_Covered.c	/^#define COL /;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_ID /;"	d	file:
+COMPILER_ID	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_ID /;"	d	file:
+COMPILER_VERSION	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION /;"	d	file:
+COMPILER_VERSION	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define COMPILER_VERSION /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_INTERNAL /;"	d	file:
+COMPILER_VERSION_INTERNAL_STR	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_INTERNAL_STR /;"	d	file:
+COMPILER_VERSION_INTERNAL_STR	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_INTERNAL_STR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^  # define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MAJOR	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_MAJOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^  # define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_MINOR	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_MINOR /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^  # define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#   define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^  # define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_PATCH	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_PATCH /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define COMPILER_VERSION_TWEAK /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_VERSION_TWEAK /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define COMPILER_VERSION_TWEAK /;"	d	file:
+COMPILER_VERSION_TWEAK	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_VERSION_TWEAK /;"	d	file:
+CXX_STD	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#      define CXX_STD /;"	d	file:
+CXX_STD	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#    define CXX_STD /;"	d	file:
+CXX_STD	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define CXX_STD /;"	d	file:
+C_VERSION	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define C_VERSION /;"	d	file:
+C_VERSION	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define C_VERSION$/;"	d	file:
+C_VERSION	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define C_VERSION /;"	d	file:
+DBLINKLIST_H	DannyLIB/inc/dblinklist.h	/^#define DBLINKLIST_H$/;"	d
+DEC	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(/;"	d	file:
+DEC	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define DEC(/;"	d	file:
+DELTA_T	test/test_newton.c	/^#define DELTA_T /;"	d	file:
+DIV2_H	divlib/inc/div2.h	/^#define DIV2_H$/;"	d
+DMATRIX2D_H	DannyLIB/inc/dmatrix2d.h	/^#define DMATRIX2D_H$/;"	d
+FG_FREQ	test/gen_sine.cpp	/^#define FG_FREQ /;"	d	file:
+FG_FS	test/gen_sine.cpp	/^#define FG_FS /;"	d	file:
+FG_SIZE	test/gen_sine.cpp	/^#define FG_SIZE /;"	d	file:
+FLAG_L	leetcode/1221_Split_a_String_in_Balanced_Strings.c	/^#define FLAG_L /;"	d	file:
+FLAG_R	leetcode/1221_Split_a_String_in_Balanced_Strings.c	/^#define FLAG_R /;"	d	file:
+FREQ_CMD	test/gen_sine.cpp	/^#define FREQ_CMD /;"	d	file:
+FS_CMD	test/gen_sine.cpp	/^#define FS_CMD /;"	d	file:
+F_CMD_INCREMENT	test/gen_sine.cpp	/^#define F_CMD_INCREMENT /;"	d	file:
+F_CMD_START_INDEX	test/gen_sine.cpp	/^#define F_CMD_START_INDEX /;"	d	file:
+GL_DBLINKLIST_H	DannyLIB/inc/gl_dblinklist.h	/^#define GL_DBLINKLIST_H$/;"	d
+HEX	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#define HEX(/;"	d	file:
+HEX	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define HEX(/;"	d	file:
+ID_VOID_MAIN	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define ID_VOID_MAIN$/;"	d	file:
+ITERATE_GL_LINKLIST_BEGIN	DannyLIB/inc/gl_dblinklist.h	/^#define ITERATE_GL_LINKLIST_BEGIN(/;"	d
+ITERATE_GL_LINKLIST_END	DannyLIB/inc/gl_dblinklist.h	/^#define ITERATE_GL_LINKLIST_END /;"	d
+ITERATE_GL_TREE_BEGIN	DannyLIB/inc/gl_dblinklist.h	/^#define ITERATE_GL_TREE_BEGIN(/;"	d
+ITERATE_GL_TREE_END	DannyLIB/inc/gl_dblinklist.h	/^#define ITERATE_GL_TREE_END /;"	d
+ITERATE_LINKLIST_BEGIN	DannyLIB/inc/dblinklist.h	/^#define ITERATE_LINKLIST_BEGIN(/;"	d
+ITERATE_LINKLIST_BEGIN	DannyLIB/inc/linklist.h	/^#define ITERATE_LINKLIST_BEGIN(/;"	d
+ITERATE_LINKLIST_END	DannyLIB/inc/dblinklist.h	/^#define ITERATE_LINKLIST_END /;"	d
+ITERATE_LINKLIST_END	DannyLIB/inc/linklist.h	/^#define ITERATE_LINKLIST_END /;"	d
+ITERATE_TREE_BEGIN	DannyLIB/inc/tree.h	/^#define ITERATE_TREE_BEGIN(/;"	d
+ITERATE_TREE_END	DannyLIB/inc/tree.h	/^#define ITERATE_TREE_END /;"	d
+LINKLIST_H	DannyLIB/inc/linklist.h	/^#define LINKLIST_H$/;"	d
+ListNode	leetcode/203_Remove_Linked_List_Elements.c	/^struct ListNode {$/;"	s	file:
+ListNode	leetcode/234_Palindrome_Linked_List.c	/^struct ListNode {$/;"	s	file:
+M2	DannyLIB/inc/rmv.h	/^    uint16_t M2;      \/\/ moving average window size$/;"	m	struct:_rm_t	typeref:typename:uint16_t
+MAIN_SEQ	leetcode/392_Is_Subsequence.c	/^#define MAIN_SEQ /;"	d	file:
+MAX_ITER_DET_MATRIX	DannyLIB/inc/dmatrix2d.h	/^#define MAX_ITER_DET_MATRIX /;"	d
+MAX_LUCKY_NUM	leetcode/1394_Find_Lucky_Integer_in_an_Array.c	/^#define MAX_LUCKY_NUM /;"	d	file:
+MAX_RELIEVE_REGISTER	DannyLIB/inc/relieve_stress.h	/^#define MAX_RELIEVE_REGISTER /;"	d
+MorrisTraversal	DannyLIB/src/tree.c	/^void MorrisTraversal(tree_node_t* root) {$/;"	f	typeref:typename:void
+N	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^#define N /;"	d	file:
+OFFSET_OF	DannyLIB/inc/gl_dblinklist.h	/^#define OFFSET_OF(/;"	d
+OFFSET_OF	test/test_offset_macro.c	/^#define OFFSET_OF(/;"	d	file:
+PACKET_QUEUE_H	DannyLIB/inc/packet_queue.h	/^#define PACKET_QUEUE_H$/;"	d
+PEOPLES	leetcode/1103_Distribute_Candies_to_People.c	/^#define PEOPLES /;"	d	file:
+PI	test/gen_sine.cpp	/^#define PI /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define PLATFORM_ID /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define PLATFORM_ID$/;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define PLATFORM_ID /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define PLATFORM_ID$/;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define PLATFORM_ID /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define PLATFORM_ID$/;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define PLATFORM_ID /;"	d	file:
+PLATFORM_ID	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define PLATFORM_ID$/;"	d	file:
+QUEUE_SIZE	test/test_packet_queue.c	/^#define QUEUE_SIZE /;"	d	file:
+RELIEVE_DEFLATE	DannyLIB/inc/relieve_stress.h	/^    RELIEVE_DEFLATE = 1$/;"	e	enum:__anonb7a5d4730203
+RELIEVE_INFLATE	DannyLIB/inc/relieve_stress.h	/^    RELIEVE_INFLATE = 0,$/;"	e	enum:__anonb7a5d4730203
+RELIEVE_NO_CHOOSE	DannyLIB/inc/relieve_stress.h	/^#define RELIEVE_NO_CHOOSE /;"	d
+RELIEVE_PASS	DannyLIB/inc/relieve_stress.h	/^#define RELIEVE_PASS /;"	d
+RELIEVE_SENSOR_MODE	DannyLIB/inc/relieve_stress.h	/^    RELIEVE_SENSOR_MODE = 1$/;"	e	enum:__anonb7a5d4730103
+RELIEVE_STRESS_H	DannyLIB/inc/relieve_stress.h	/^#define RELIEVE_STRESS_H$/;"	d
+RELIEVE_TIME_MODE	DannyLIB/inc/relieve_stress.h	/^    RELIEVE_TIME_MODE = 0,$/;"	e	enum:__anonb7a5d4730103
+RMV_H	DannyLIB/inc/rmv.h	/^#define RMV_H$/;"	d
+ROW	leetcode/1893_Check_if_All_the_Integers_in_a_Range_Are_Covered.c	/^#define ROW /;"	d	file:
+SIMULATE_ID	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_ID /;"	d	file:
+SIMULATE_ID	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define SIMULATE_ID /;"	d	file:
+SIMULATE_ID	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_ID /;"	d	file:
+SIMULATE_ID	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define SIMULATE_ID /;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_MAJOR /;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define SIMULATE_VERSION_MAJOR /;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_VERSION_MAJOR /;"	d	file:
+SIMULATE_VERSION_MAJOR	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define SIMULATE_VERSION_MAJOR /;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_MINOR /;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define SIMULATE_VERSION_MINOR /;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_VERSION_MINOR /;"	d	file:
+SIMULATE_VERSION_MINOR	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define SIMULATE_VERSION_MINOR /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_VERSION_PATCH /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define SIMULATE_VERSION_PATCH /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_VERSION_PATCH /;"	d	file:
+SIMULATE_VERSION_PATCH	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define SIMULATE_VERSION_PATCH /;"	d	file:
+SIZE_CMD	test/gen_sine.cpp	/^#define SIZE_CMD /;"	d	file:
+SM_H	smlib/sm.h	/^#define SM_H$/;"	d
+START_N	test/test_newton.c	/^#define START_N /;"	d	file:
+STATE	test/test_sm.c	/^enum STATE {$/;"	g	file:
+STRINGIFY	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY(/;"	d	file:
+STRINGIFY	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define STRINGIFY(/;"	d	file:
+STRINGIFY_HELPER	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY_HELPER(/;"	d	file:
+STRINGIFY_HELPER	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define STRINGIFY_HELPER(/;"	d	file:
+ST_TRANS_ENTRY	smlib/sm.h	/^#define ST_TRANS_ENTRY(/;"	d
+ST_TRANS_MAP_END	smlib/sm.h	/^#define ST_TRANS_MAP_END(/;"	d
+ST_TRANS_MAP_START	smlib/sm.h	/^#define ST_TRANS_MAP_START(/;"	d
+SUB_SEQ	leetcode/392_Is_Subsequence.c	/^#define SUB_SEQ /;"	d	file:
+TEST_N	leetcode/1009_Complement_of_Base_10_Integer.c	/^int TEST_N = 10;$/;"	v	typeref:typename:int
+TEST_N	leetcode/1281_Subtract_the_Product_and_Sum_of_Digits.c	/^#define TEST_N /;"	d	file:
+TEST_N	leetcode/190_Reverse_Bits.c	/^#define  TEST_N /;"	d	file:
+TEST_N	leetcode/231_Power_Of_Two.c	/^#define TEST_N /;"	d	file:
+TEST_N	leetcode/70_Climbing_Stairs.c	/^#define TEST_N /;"	d	file:
+TEST_NUM	test_matrix/test_least_square.c	/^#define TEST_NUM /;"	d	file:
+TEST_SUDOKU	leetcode/36_Valid_Sudoku.c	/^char TEST_SUDOKU[9][9] = $/;"	v	typeref:typename:char[9][9]
+TEXT	leetcode/1189_Maximum_Number_of_Balloons.c	/^#define TEXT /;"	d	file:
+TEXT	leetcode/1324_Print_Words_Vertically.c	/^#define TEXT /;"	d	file:
+TREE_H	DannyLIB/inc/tree.h	/^#define TREE_H$/;"	d
+TreeNode	leetcode/111_Minimum_Depth_of_Binary_Tree.c	/^struct TreeNode {$/;"	s	file:
+WINDOW_SIZE	test/test_rmv.c	/^#define WINDOW_SIZE /;"	d	file:
+__anonb7a5d4730103	DannyLIB/inc/relieve_stress.h	/^typedef enum {$/;"	g
+__anonb7a5d4730203	DannyLIB/inc/relieve_stress.h	/^typedef enum {$/;"	g
+__anonb9ac48bf010a	test/test_lin_parity.c	/^    {$/;"	u	struct:_p	file:
+__anonb9ac48bf0208	test/test_lin_parity.c	/^        struct {$/;"	s	union:_p::__anonb9ac48bf010a	file:
+__has_include	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^#  define __has_include(/;"	d	file:
+__has_include	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define __has_include(/;"	d	file:
+_circular_buf_t	DannyLIB/inc/circular_buf.h	/^typedef struct _circular_buf_t {$/;"	s
+_dbnode_t	DannyLIB/inc/dblinklist.h	/^typedef struct _dbnode_t {$/;"	s
+_freq_t	test/gen_sine.cpp	/^typedef struct _freq_t {$/;"	s	file:
+_gl_node_t	DannyLIB/inc/gl_dblinklist.h	/^typedef struct _gl_node_t {$/;"	s
+_lin_packet_t	test/test_packet_queue.c	/^typedef struct _lin_packet_t {$/;"	s	file:
+_mapping_t	smlib/sm.h	/^typedef struct _mapping_t {$/;"	s
+_node_t	DannyLIB/inc/linklist.h	/^typedef struct _node_t {$/;"	s
+_p	test/test_lin_parity.c	/^typedef struct _p {$/;"	s	file:
+_packet_queue_	DannyLIB/inc/packet_queue.h	/^typedef struct _packet_queue_ {$/;"	s
+_pos_t	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^typedef struct _pos_t {$/;"	s	file:
+_relieve_stress_t	DannyLIB/inc/relieve_stress.h	/^typedef struct _relieve_stress_t {$/;"	s
+_relieve_unit_t	DannyLIB/inc/relieve_stress.h	/^typedef struct _relieve_unit_t {$/;"	s
+_rm_t	DannyLIB/inc/rmv.h	/^typedef struct _rm_t {$/;"	s
+_save_pos	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^typedef struct _save_pos {$/;"	s	file:
+_sm_t	smlib/sm.h	/^typedef struct _sm_t {$/;"	s
+_test_struct_t	test/test_glue_application.c	/^typedef struct _test_struct_t {$/;"	s	file:
+_test_struct_t	test/test_offset_macro.c	/^typedef struct _test_struct_t {$/;"	s	file:
+_tree_node_t	DannyLIB/inc/tree.h	/^typedef struct _tree_node_t {$/;"	s
+_var_C_t	test/test_sm.c	/^typedef struct _var_C_t {$/;"	s	file:
+a	test/test_glue_application.c	/^    int a;$/;"	m	struct:_test_struct_t	typeref:typename:int	file:
+a	test/test_offset_macro.c	/^    int a;$/;"	m	struct:_test_struct_t	typeref:typename:int	file:
+action	DannyLIB/inc/relieve_stress.h	/^    uint8_t action;$/;"	m	struct:_relieve_unit_t	typeref:typename:uint8_t
+add	src/add.c	/^int add(int a, int b) {$/;"	f	typeref:typename:int
+address_size_t	test/test_glue_application.c	/^    typedef uint32_t address_size_t;$/;"	t	typeref:typename:uint32_t	file:
+address_size_t	test/test_glue_application.c	/^    typedef uint64_t address_size_t;$/;"	t	typeref:typename:uint64_t	file:
+address_size_t	test/test_offset_macro.c	/^    typedef uint32_t address_size_t;$/;"	t	typeref:typename:uint32_t	file:
+address_size_t	test/test_offset_macro.c	/^    typedef uint64_t address_size_t;$/;"	t	typeref:typename:uint64_t	file:
+ans	test/test_add.c	/^int ans[] = {4, 9, -5};$/;"	v	typeref:typename:int[]
+arg1	test/test_add.c	/^int arg1[] = {-1, 2, 5};$/;"	v	typeref:typename:int[]
+arg2	test/test_add.c	/^int arg2[] = {5, 7, -10};$/;"	v	typeref:typename:int[]
+array	test/gen_sine.cpp	/^    int *array;$/;"	m	struct:_freq_t	typeref:typename:int *	file:
+attenuator	DannyLIB/inc/rmv.h	/^    float attenuator; \/\/ attenuator$/;"	m	struct:_rm_t	typeref:typename:float
+average	leetcode/1491_average_salary.c	/^double average(int *salary, int salarySize){$/;"	f	typeref:typename:double
+b	test/test_glue_application.c	/^    int b;$/;"	m	struct:_test_struct_t	typeref:typename:int	file:
+balancedStringSplit	leetcode/1221_Split_a_String_in_Balanced_Strings.c	/^int balancedStringSplit(char *s){$/;"	f	typeref:typename:int
+bfs_find_short	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^int bfs_find_short(int **grid, int gridSize) {$/;"	f	typeref:typename:int
+bits	test/test_lin_parity.c	/^        } bits;$/;"	m	union:_p::__anonb9ac48bf010a	typeref:struct:_p::__anonb9ac48bf010a::__anonb9ac48bf0208	file:
+bitwiseComplement	leetcode/1009_Complement_of_Base_10_Integer.c	/^int bitwiseComplement(int n){$/;"	f	typeref:typename:int
+buf	test/test_packet_queue.c	/^static uint8_t buf[sizeof(lin_packet_t)*QUEUE_SIZE];$/;"	v	typeref:typename:uint8_t[]	file:
+buf_len	DannyLIB/inc/packet_queue.h	/^    uint32_t buf_len;       \/\/ queue buf length$/;"	m	struct:_packet_queue_	typeref:typename:uint32_t
+buf_p	DannyLIB/inc/circular_buf.h	/^  uint8_t *buf_p;$/;"	m	struct:_circular_buf_t	typeref:typename:uint8_t *
+busy_flag	DannyLIB/inc/circular_buf.h	/^  uint8_t busy_flag;$/;"	m	struct:_circular_buf_t	typeref:typename:uint8_t
+c	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^    int c;$/;"	m	struct:_pos_t	typeref:typename:int	file:
+c	test/test_offset_macro.c	/^    int c;$/;"	m	struct:_test_struct_t	typeref:typename:int	file:
+calculat_lin_parity	test/test_lin_parity.c	/^void calculat_lin_parity(p_t *ap_addr) {$/;"	f	typeref:typename:void
+checkIfExist	leetcode/1346_Check_If_N_and_Its_Double_Exist.c	/^bool checkIfExist(int *arr, int arrSize) {$/;"	f	typeref:typename:bool
+circular_buf_get_count	DannyLIB/src/circular_buf.c	/^inline uint16_t circular_buf_get_count(circular_buf_t *circular_buf) {$/;"	f	typeref:typename:uint16_t
+circular_buf_init	DannyLIB/src/circular_buf.c	/^void circular_buf_init(circular_buf_t *circular_buf, uint8_t *buf_p, uint16_t len) {$/;"	f	typeref:typename:void
+circular_buf_pop	DannyLIB/src/circular_buf.c	/^uint8_t circular_buf_pop(circular_buf_t *circular_buf, uint8_t *data_p, uint8_t data_sz) {$/;"	f	typeref:typename:uint8_t
+circular_buf_put	DannyLIB/src/circular_buf.c	/^uint8_t circular_buf_put(circular_buf_t *circular_buf, uint8_t *data_p, uint8_t data_sz) {$/;"	f	typeref:typename:uint8_t
+circular_buf_t	DannyLIB/inc/circular_buf.h	/^} circular_buf_t;$/;"	t	typeref:struct:_circular_buf_t
+clean_pos	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^void clean_pos(save_pos_t *sv_pos) {$/;"	f	typeref:typename:void
+climbStairs	leetcode/70_Climbing_Stairs.c	/^int climbStairs(int n){$/;"	f	typeref:typename:int
+cmpfunc	leetcode/1619_Mean_After_Removing_Some_Elements.c	/^static int cmpfunc (const void * a, const void * b) {$/;"	f	typeref:typename:int	file:
+cnt	DannyLIB/src/dmatrix2d.c	/^static int cnt = 0;$/;"	v	typeref:typename:int	file:
+concat_dot	smlib/sm.h	/^#define concat_dot(/;"	d
+const	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define const$/;"	d	file:
+count	DannyLIB/inc/circular_buf.h	/^  uint16_t count;$/;"	m	struct:_circular_buf_t	typeref:typename:uint16_t
+count	DannyLIB/inc/packet_queue.h	/^    uint32_t count;         \/\/ how many data should be send$/;"	m	struct:_packet_queue_	typeref:typename:uint32_t
+count	DannyLIB/inc/relieve_stress.h	/^    uint8_t count;$/;"	m	struct:_relieve_stress_t	typeref:typename:uint8_t
+cpyGridToHeap	leetcode/463_Island_Perimeter.c	/^void cpyGridToHeap(int **grid_dst, int *grid_src, int row, int col) {$/;"	f	typeref:typename:void
+create_matrixf	DannyLIB/src/dmatrix2d.c	/^float **create_matrixf(int row, int col) {$/;"	f	typeref:typename:float **
+current_index	DannyLIB/src/relieve_stress.c	/^static uint8_t current_index = 0;$/;"	v	typeref:typename:uint8_t	file:
+d0	test/test_lin_parity.c	/^            uint8_t d0: 1;  \/\/ LSB$/;"	m	struct:_p::__anonb9ac48bf010a::__anonb9ac48bf0208	typeref:typename:uint8_t:1	file:
+d1	test/test_lin_parity.c	/^            uint8_t d1: 1;$/;"	m	struct:_p::__anonb9ac48bf010a::__anonb9ac48bf0208	typeref:typename:uint8_t:1	file:
+d2	test/test_lin_parity.c	/^            uint8_t d2: 1;$/;"	m	struct:_p::__anonb9ac48bf010a::__anonb9ac48bf0208	typeref:typename:uint8_t:1	file:
+d3	test/test_lin_parity.c	/^            uint8_t d3: 1;$/;"	m	struct:_p::__anonb9ac48bf010a::__anonb9ac48bf0208	typeref:typename:uint8_t:1	file:
+d4	test/test_lin_parity.c	/^            uint8_t d4: 1;$/;"	m	struct:_p::__anonb9ac48bf010a::__anonb9ac48bf0208	typeref:typename:uint8_t:1	file:
+d5	test/test_lin_parity.c	/^            uint8_t d5: 1;$/;"	m	struct:_p::__anonb9ac48bf010a::__anonb9ac48bf0208	typeref:typename:uint8_t:1	file:
+data	DannyLIB/inc/packet_queue.h	/^    uint8_t *data;          \/\/ point to the data$/;"	m	struct:_packet_queue_	typeref:typename:uint8_t *
+data	test/test_packet_queue.c	/^    uint8_t data[8];$/;"	m	struct:_lin_packet_t	typeref:typename:uint8_t[8]	file:
+data_size	test/test_packet_queue.c	/^    uint8_t data_size;$/;"	m	struct:_lin_packet_t	typeref:typename:uint8_t	file:
+dbnode_t	DannyLIB/inc/dblinklist.h	/^} dbnode_t;$/;"	t	typeref:struct:_dbnode_t
+def_sm	smlib/sm.h	/^#define def_sm(/;"	d
+delete_matrixf	DannyLIB/src/dmatrix2d.c	/^void delete_matrixf(float **mat) {$/;"	f	typeref:typename:void
+dequeueIndex	DannyLIB/inc/packet_queue.h	/^    uint32_t dequeueIndex;  \/\/ dequeue index$/;"	m	struct:_packet_queue_	typeref:typename:uint32_t
+deri	test/test_newton.c	/^float deri(float yn, float yn_1) {$/;"	f	typeref:typename:float
+det_22_33	DannyLIB/src/dmatrix2d.c	/^float det_22_33(float **mat, int n) {$/;"	f	typeref:typename:float
+detf	DannyLIB/src/dmatrix2d.c	/^float detf(float **mat, int n, int isCofator) {$/;"	f	typeref:typename:float
+distributeCandies	leetcode/1103_Distribute_Candies_to_People.c	/^int *distributeCandies(int candies, int num_people, int *returnSize){$/;"	f	typeref:typename:int *
+div2	divlib/src/div2.c	/^float div2(float a, float b) {$/;"	f	typeref:typename:float
+enqueueIndex	DannyLIB/inc/packet_queue.h	/^    uint32_t enqueueIndex;  \/\/ queue index$/;"	m	struct:_packet_queue_	typeref:typename:uint32_t
+findLucky	leetcode/1394_Find_Lucky_Integer_in_an_Array.c	/^int findLucky(int *arr, int arrSize){$/;"	f	typeref:typename:int
+findMaximumXOR	leetcode/421_Maximum_XOR_of_Two_Numbers_in_an_Array.c	/^int findMaximumXOR(int *nums, int numsSize){$/;"	f	typeref:typename:int
+flag	test/test_sm.c	/^int flag = 0;$/;"	v	typeref:typename:int
+freqAlphabets	leetcode/1309_Decrypt_String_from_Alphabet_to_Integer_Mapping.c	/^char *freqAlphabets(char *s){$/;"	f	typeref:typename:char *
+freq_t	test/gen_sine.cpp	/^}freq_t;$/;"	t	typeref:struct:_freq_t	file:
+getBalloonCharIndex	leetcode/1189_Maximum_Number_of_Balloons.c	/^int getBalloonCharIndex(char ch) {$/;"	f	typeref:typename:int
+getValue	test/gen_sine.cpp	/^int getValue(char *data) {$/;"	f	typeref:typename:int
+get_current_index	DannyLIB/src/relieve_stress.c	/^inline uint8_t get_current_index(void) {$/;"	f	typeref:typename:uint8_t
+get_register_count	DannyLIB/src/relieve_stress.c	/^inline uint8_t get_register_count(void) {$/;"	f	typeref:typename:uint8_t
+get_relieve_mode	DannyLIB/src/relieve_stress.c	/^inline relieve_em get_relieve_mode(void) {$/;"	f	typeref:typename:relieve_em
+get_tick	DannyLIB/src/relieve_stress.c	/^__attribute__((weak)) int get_tick(void) {$/;"	f	typeref:typename:int
+gl_node_t	DannyLIB/inc/gl_dblinklist.h	/^} gl_node_t;$/;"	t	typeref:struct:_gl_node_t
+grid	leetcode/463_Island_Perimeter.c	/^int grid[4][3] = {$/;"	v	typeref:typename:int[4][3]
+head_i	DannyLIB/inc/circular_buf.h	/^  uint16_t head_i;$/;"	m	struct:_circular_buf_t	typeref:typename:uint16_t
+id	test/test_packet_queue.c	/^    uint8_t id;$/;"	m	struct:_lin_packet_t	typeref:typename:uint8_t	file:
+info_arch	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v	typeref:typename:char const *
+info_arch	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v	typeref:typename:char const *
+info_compiler	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v	typeref:typename:char const *
+info_compiler	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v	typeref:typename:char const *
+info_cray	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";$/;"	v	typeref:typename:char const *
+info_cray	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const *info_cray = "INFO" ":" "compiler_wrapper[CrayPrgEnv]";$/;"	v	typeref:typename:char const *
+info_language_extensions_default	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^const char* info_language_extensions_default = "INFO" ":" "extensions_default["$/;"	v	typeref:typename:const char *
+info_language_extensions_default	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^const char* info_language_extensions_default = "INFO" ":" "extensions_default["$/;"	v	typeref:typename:const char *
+info_language_standard_default	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^const char* info_language_standard_default =$/;"	v	typeref:typename:const char *
+info_language_standard_default	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^const char* info_language_standard_default = "INFO" ":" "standard_default["$/;"	v	typeref:typename:const char *
+info_platform	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v	typeref:typename:char const *
+info_platform	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_platform = "INFO" ":" "platform[" PLATFORM_ID "]";$/;"	v	typeref:typename:char const *
+info_simulate	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^char const* info_simulate = "INFO" ":" "simulate[" SIMULATE_ID "]";$/;"	v	typeref:typename:char const *
+info_simulate	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_simulate = "INFO" ":" "simulate[" SIMULATE_ID "]";$/;"	v	typeref:typename:char const *
+info_simulate_version	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^char const info_simulate_version[] = {$/;"	v	typeref:typename:char const[]
+info_simulate_version	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_simulate_version[] = {$/;"	v	typeref:typename:char const[]
+info_version	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^char const info_version[] = {$/;"	v	typeref:typename:char const[]
+info_version	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^char const* info_version = "INFO" ":" "compiler_version[" COMPILER_VERSION "]";$/;"	v	typeref:typename:char const *
+info_version	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version[] = {$/;"	v	typeref:typename:char const[]
+info_version	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_version = "INFO" ":" "compiler_version[" COMPILER_VERSION "]";$/;"	v	typeref:typename:char const *
+info_version_internal	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^char const info_version_internal[] = {$/;"	v	typeref:typename:char const[]
+info_version_internal	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^char const* info_version_internal = "INFO" ":" "compiler_version_internal[" COMPILER_VERSION_INT/;"	v	typeref:typename:char const *
+info_version_internal	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version_internal[] = {$/;"	v	typeref:typename:char const[]
+info_version_internal	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_version_internal = "INFO" ":" "compiler_version_internal[" COMPILER_VERSION_INT/;"	v	typeref:typename:char const *
+init_my_timer	test_posix/test_posix_timer.c	/^void init_my_timer(void) {$/;"	f	typeref:typename:void
+init_rmv	DannyLIB/src/rmv.c	/^void init_rmv(rmv_t *rmv, float *x_buf, uint16_t M2) {$/;"	f	typeref:typename:void
+insert_gllinklist	DannyLIB/src/gl_dblinklist.c	/^void insert_gllinklist(gl_node_t *node1_p, gl_node_t *node2_p) {$/;"	f	typeref:typename:void
+insert_relieve_stress	DannyLIB/src/relieve_stress.c	/^void insert_relieve_stress(uint8_t index, uint8_t pos, uint8_t value, relieve_act_em act) {$/;"	f	typeref:typename:void
+isAnagram	leetcode/242_ValidAnagram.c	/^bool isAnagram(char *s, char *t){$/;"	f	typeref:typename:bool
+isCovered	leetcode/1893_Check_if_All_the_Integers_in_a_Range_Are_Covered.c	/^bool isCovered(int **ranges, int rangesSize, int *rangesColSize, int left, int right) {$/;"	f	typeref:typename:bool
+isInpos	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^int isInpos(save_pos_t *sv_pos, int row, int col) {$/;"	f	typeref:typename:int
+isPalindrome	leetcode/234_Palindrome_Linked_List.c	/^bool isPalindrome(struct ListNode* head) {$/;"	f	typeref:typename:bool
+isPowerOfTwo	leetcode/231_Power_Of_Two.c	/^bool isPowerOfTwo(int n) {$/;"	f	typeref:typename:bool
+isSubsequence	leetcode/392_Is_Subsequence.c	/^bool isSubsequence(char *s, char *t){$/;"	f	typeref:typename:bool
+isValidSudoku	leetcode/36_Valid_Sudoku.c	/^bool isValidSudoku(char **board, int boardSize, int *boardColSize){$/;"	f	typeref:typename:bool
+is_next_pos	DannyLIB/src/relieve_stress.c	/^uint8_t is_next_pos(void) {    $/;"	f	typeref:typename:uint8_t
+islandPerimeter	leetcode/463_Island_Perimeter.c	/^int islandPerimeter(int **grid, int gridSize, int *gridColSize) {$/;"	f	typeref:typename:int
+iter_rmv	DannyLIB/src/rmv.c	/^float iter_rmv(rmv_t *rmv, float new_x) {$/;"	f	typeref:typename:float
+judgeCircle	leetcode/657_Robot_Return_to_Origin.c	/^bool judgeCircle(char *moves){$/;"	f	typeref:typename:bool
+largestAltitude	leetcode/1732_largestAltitude.c	/^int largestAltitude(int *gain, int gainSize){$/;"	f	typeref:typename:int
+left	DannyLIB/inc/dblinklist.h	/^    struct _dbnode_t *left;$/;"	m	struct:_dbnode_t	typeref:struct:_dbnode_t *
+left	DannyLIB/inc/gl_dblinklist.h	/^    struct _gl_node_t *left;$/;"	m	struct:_gl_node_t	typeref:struct:_gl_node_t *
+left	DannyLIB/inc/tree.h	/^    struct _tree_node_t *left;$/;"	m	struct:_tree_node_t	typeref:struct:_tree_node_t *
+left	leetcode/111_Minimum_Depth_of_Binary_Tree.c	/^    struct TreeNode *left;$/;"	m	struct:TreeNode	typeref:struct:TreeNode *	file:
+len	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^    int len;$/;"	m	struct:_save_pos	typeref:typename:int	file:
+len	test/gen_sine.cpp	/^    int len;$/;"	m	struct:_freq_t	typeref:typename:int	file:
+lin_packet_t	test/test_packet_queue.c	/^} lin_packet_t;$/;"	t	typeref:struct:_lin_packet_t	file:
+main	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^int main(argc, argv) int argc; char *argv[];$/;"	f
+main	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/;"	f	typeref:typename:void
+main	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^int main(int argc, char* argv[])$/;"	f	typeref:typename:int
+main	leetcode/1009_Complement_of_Base_10_Integer.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1103_Distribute_Candies_to_People.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/111_Minimum_Depth_of_Binary_Tree.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1189_Maximum_Number_of_Balloons.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/121_Best_Time_to_Buy_and_Sell_Stock.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1221_Split_a_String_in_Balanced_Strings.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1281_Subtract_the_Product_and_Sum_of_Digits.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1302_deepest_sum.c	/^int main () {$/;"	f	typeref:typename:int
+main	leetcode/1309_Decrypt_String_from_Alphabet_to_Integer_Mapping.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1324_Print_Words_Vertically.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1346_Check_If_N_and_Its_Double_Exist.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1394_Find_Lucky_Integer_in_an_Array.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1491_average_salary.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1512_Number_of_Good_Pairs.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1518_Water_Bottles.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1588_Sum_of_All_Odd_Length_Subarrays.c	/^int main () {$/;"	f	typeref:typename:int
+main	leetcode/1619_Mean_After_Removing_Some_Elements.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1732_largestAltitude.c	/^int main(void) {$/;"	f	typeref:typename:int
+main	leetcode/1758_Minimum_Changes_To_Make_Alternating_Binary_String.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1805_Number_of_Different_Integers_in_a_String.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1863_Sum_of_All_Subset_XOR_Totals.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/1893_Check_if_All_the_Integers_in_a_Range_Are_Covered.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/190_Reverse_Bits.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/203_Remove_Linked_List_Elements.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/231_Power_Of_Two.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/234_Palindrome_Linked_List.c	/^int main(void) {$/;"	f	typeref:typename:int
+main	leetcode/242_ValidAnagram.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/36_Valid_Sudoku.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/392_Is_Subsequence.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/413_Arithmetic_Slices.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/421_Maximum_XOR_of_Two_Numbers_in_an_Array.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/463_Island_Perimeter.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/657_Robot_Return_to_Origin.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/70_Climbing_Stairs.c	/^int main() {$/;"	f	typeref:typename:int
+main	leetcode/905_Sort_Array_By_Parity_I.c	/^int main(void) {$/;"	f	typeref:typename:int
+main	leetcode/922_Sort_Array_By_Parity_II.c	/^int main(void) {$/;"	f	typeref:typename:int
+main	main.cpp	/^int main(void) {$/;"	f	typeref:typename:int
+main	test/gen_sine.cpp	/^int main(int argc, char *argv[]) {$/;"	f	typeref:typename:int
+main	test/test_add.c	/^int main(void) {$/;"	f	typeref:typename:int
+main	test/test_cout.cpp	/^int main(void) {$/;"	f	typeref:typename:int
+main	test/test_dblinklist_iterative_macros.c	/^int main(void) {$/;"	f	typeref:typename:int
+main	test/test_float_integer.c	/^int main(void) {$/;"	f	typeref:typename:int
+main	test/test_glue_application.c	/^int main(void) {$/;"	f	typeref:typename:int
+main	test/test_lin_parity.c	/^int main(void) {$/;"	f	typeref:typename:int
+main	test/test_linklist_iterative_macros.c	/^int main(void) {$/;"	f	typeref:typename:int
+main	test/test_newton.c	/^int main() {$/;"	f	typeref:typename:int
+main	test/test_offset_macro.c	/^int main() {$/;"	f	typeref:typename:int
+main	test/test_packet_queue.c	/^int main() {$/;"	f	typeref:typename:int
+main	test/test_relieve_stress.c	/^int main() {$/;"	f	typeref:typename:int
+main	test/test_rmv.c	/^int main(void) {$/;"	f	typeref:typename:int
+main	test/test_sm.c	/^int main(int argv, char *argc[]) {$/;"	f	typeref:typename:int
+main	test/test_tree_iterative_macros.c	/^int main(void) {$/;"	f	typeref:typename:int
+main	test_matrix/test_adjoint.c	/^int main() {$/;"	f	typeref:typename:int
+main	test_matrix/test_cofactor.c	/^int main() {$/;"	f	typeref:typename:int
+main	test_matrix/test_det.c	/^int main() {$/;"	f	typeref:typename:int
+main	test_matrix/test_inv_matrix.c	/^int main() {$/;"	f	typeref:typename:int
+main	test_matrix/test_least_square.c	/^int main() {$/;"	f	typeref:typename:int
+main	test_matrix/test_transposef.c	/^int main() {$/;"	f	typeref:typename:int
+main	test_posix/test_mutex.c	/^int main() {$/;"	f	typeref:typename:int
+main	test_posix/test_posix_timer.c	/^int main() {$/;"	f	typeref:typename:int
+main	test_posix/test_semphr.c	/^int main() {$/;"	f	typeref:typename:int
+main	test_posix/test_simple_pthread.c	/^int main() {$/;"	f	typeref:typename:int
+map	smlib/sm.h	/^    void *map;$/;"	m	struct:_sm_t	typeref:typename:void *
+mapping_t	smlib/sm.h	/^}mapping_t;$/;"	t	typeref:struct:_mapping_t
+mat_adjoint	DannyLIB/src/dmatrix2d.c	/^float **mat_adjoint(float **mat, int n) {$/;"	f	typeref:typename:float **
+mat_cofactor	DannyLIB/src/dmatrix2d.c	/^void mat_cofactor(float **mat, float **co_mat, int r_cof, int c_cof, int n) {$/;"	f	typeref:typename:void
+mat_inverse	DannyLIB/src/dmatrix2d.c	/^float **mat_inverse(float **mat, int n) {$/;"	f	typeref:typename:float **
+mat_mul	DannyLIB/src/dmatrix2d.c	/^float **mat_mul(float **mat1, float **mat2, int row1, int row_col, int col2) {$/;"	f	typeref:typename:float **
+maxNumberOfBalloons	leetcode/1189_Maximum_Number_of_Balloons.c	/^int maxNumberOfBalloons(char *text){$/;"	f	typeref:typename:int
+maxlen	DannyLIB/inc/circular_buf.h	/^  uint16_t maxlen;$/;"	m	struct:_circular_buf_t	typeref:typename:uint16_t
+minDepth	leetcode/111_Minimum_Depth_of_Binary_Tree.c	/^int minDepth(struct TreeNode *root){$/;"	f	typeref:typename:int
+minOperations	leetcode/1758_Minimum_Changes_To_Make_Alternating_Binary_String.c	/^int minOperations(char *s) {$/;"	f	typeref:typename:int
+mode	DannyLIB/inc/relieve_stress.h	/^    relieve_em mode;$/;"	m	struct:_relieve_stress_t	typeref:typename:relieve_em
+name	test/test_glue_application.c	/^    char name[20];$/;"	m	struct:_test_struct_t	typeref:typename:char[20]	file:
+name	test/test_offset_macro.c	/^    char name[10];$/;"	m	struct:_test_struct_t	typeref:typename:char[10]	file:
+newton	test/test_newton.c	/^float newton(float x, float dy, float ddy) {$/;"	f	typeref:typename:float
+next	DannyLIB/inc/linklist.h	/^    struct _node_t *next;$/;"	m	struct:_node_t	typeref:struct:_node_t *
+next	leetcode/203_Remove_Linked_List_Elements.c	/^    struct ListNode *next;$/;"	m	struct:ListNode	typeref:struct:ListNode *	file:
+next	leetcode/234_Palindrome_Linked_List.c	/^    struct ListNode *next;$/;"	m	struct:ListNode	typeref:struct:ListNode *	file:
+node	test/test_glue_application.c	/^    gl_node_t node;$/;"	m	struct:_test_struct_t	typeref:typename:gl_node_t	file:
+node_t	DannyLIB/inc/linklist.h	/^} node_t;$/;"	t	typeref:struct:_node_t
+numDifferentIntegers	leetcode/1805_Number_of_Different_Integers_in_a_String.c	/^int numDifferentIntegers(char *word){$/;"	f	typeref:typename:int
+numIdenticalPairs	leetcode/1512_Number_of_Good_Pairs.c	/^int numIdenticalPairs(int *nums, int numsSize){$/;"	f	typeref:typename:int
+numWaterBottles	leetcode/1518_Water_Bottles.c	/^int numWaterBottles(int numBottles, int numExchange){$/;"	f	typeref:typename:int
+numberOfArithmeticSlices	leetcode/413_Arithmetic_Slices.c	/^int numberOfArithmeticSlices(int *nums, int numsSize) {$/;"	f	typeref:typename:int
+nums	leetcode/1512_Number_of_Good_Pairs.c	/^int nums[] = {1,1,1,1};       \/\/ answer is 6$/;"	v	typeref:typename:int[]
+output	DannyLIB/inc/rmv.h	/^    float output;     \/\/ y[k]$/;"	m	struct:_rm_t	typeref:typename:float
+p0	test/test_lin_parity.c	/^            uint8_t p0: 1;$/;"	m	struct:_p::__anonb9ac48bf010a::__anonb9ac48bf0208	typeref:typename:uint8_t:1	file:
+p1	test/test_lin_parity.c	/^            uint8_t p1: 1;  \/\/ MSB$/;"	m	struct:_p::__anonb9ac48bf010a::__anonb9ac48bf0208	typeref:typename:uint8_t:1	file:
+p_t	test/test_lin_parity.c	/^} p_t;$/;"	t	typeref:struct:_p	file:
+packet_queue_dequeue	DannyLIB/src/packet_queue.c	/^void packet_queue_dequeue(packet_queue_t *packet_queue) {$/;"	f	typeref:typename:void
+packet_queue_enqueue	DannyLIB/src/packet_queue.c	/^void packet_queue_enqueue(packet_queue_t *packet_queue, uint8_t *data) {$/;"	f	typeref:typename:void
+packet_queue_get_count	DannyLIB/src/packet_queue.c	/^inline uint32_t packet_queue_get_count(packet_queue_t *packet_queue) {$/;"	f	typeref:typename:uint32_t
+packet_queue_get_packet	DannyLIB/src/packet_queue.c	/^void packet_queue_get_packet(packet_queue_t *packet_queue, uint8_t *packet) {$/;"	f	typeref:typename:void
+packet_queue_init	DannyLIB/src/packet_queue.c	/^void packet_queue_init(packet_queue_t *packet_queue, uint8_t *buf_p, uint32_t packet_sz, uint32_/;"	f	typeref:typename:void
+packet_queue_t	DannyLIB/inc/packet_queue.h	/^} packet_queue_t;$/;"	t	typeref:struct:_packet_queue_
+packet_sz	DannyLIB/inc/packet_queue.h	/^    uint32_t packet_sz;     \/\/ each packet length$/;"	m	struct:_packet_queue_	typeref:typename:uint32_t
+para	DannyLIB/inc/dblinklist.h	/^    void *para;$/;"	m	struct:_dbnode_t	typeref:typename:void *
+para	DannyLIB/inc/linklist.h	/^    void *para;$/;"	m	struct:_node_t	typeref:typename:void *
+para	DannyLIB/inc/tree.h	/^    void *para;$/;"	m	struct:_tree_node_t	typeref:typename:void *
+para	smlib/sm.h	/^    void *para;$/;"	m	struct:_mapping_t	typeref:typename:void *
+parent	DannyLIB/inc/tree.h	/^    struct _tree_node_t *parent;$/;"	m	struct:_tree_node_t	typeref:struct:_tree_node_t *
+pi	test/test_offset_macro.c	/^    float pi;$/;"	m	struct:_test_struct_t	typeref:typename:float	file:
+pop_pos	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^void pop_pos(save_pos_t *sv_pos, int *prow, int *pcol) {$/;"	f	typeref:typename:void
+pos	DannyLIB/inc/relieve_stress.h	/^    uint8_t pos;$/;"	m	struct:_relieve_unit_t	typeref:typename:uint8_t
+pos	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^    pos_t *pos;$/;"	m	struct:_save_pos	typeref:typename:pos_t *	file:
+pos_t	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^} pos_t;$/;"	t	typeref:struct:_pos_t	file:
+pow_ten	leetcode/1281_Subtract_the_Product_and_Sum_of_Digits.c	/^int pow_ten(int n) {$/;"	f	typeref:typename:int
+printVertically	leetcode/1324_Print_Words_Vertically.c	/^char **printVertically(char *s, int *returnSize) {$/;"	f	typeref:typename:char **
+print_binary	leetcode/421_Maximum_XOR_of_Two_Numbers_in_an_Array.c	/^void print_binary(int n) {$/;"	f	typeref:typename:void
+print_current_system_time	test_posix/test_posix_timer.c	/^static void print_current_system_time() {$/;"	f	typeref:typename:void	file:
+print_matrixf	DannyLIB/src/dmatrix2d.c	/^void print_matrixf(float **mat, int row, int col) {$/;"	f	typeref:typename:void
+qnxnto	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v	typeref:typename:char const *
+qnxnto	build/CMakeFiles/3.22.0/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v	typeref:typename:char const *
+queue_len	DannyLIB/inc/packet_queue.h	/^    uint16_t queue_len;     \/\/ queue length$/;"	m	struct:_packet_queue_	typeref:typename:uint16_t
+r	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^    int r;$/;"	m	struct:_pos_t	typeref:typename:int	file:
+recur_bottle	leetcode/1518_Water_Bottles.c	/^void recur_bottle(int numBottles, int numExchange, int residual, int *drink_n) {$/;"	f	typeref:typename:void
+reg	test/test_lin_parity.c	/^        uint8_t reg;$/;"	m	union:_p::__anonb9ac48bf010a	typeref:typename:uint8_t	file:
+register_dblinklist	DannyLIB/src/dblinklist.c	/^void register_dblinklist(dbnode_t *head_p, dbnode_t *node_p, void *para) {$/;"	f	typeref:typename:void
+register_linklist	DannyLIB/src/linklist.c	/^void register_linklist(node_t *head_p, node_t *node_p, void *para) {$/;"	f	typeref:typename:void
+register_relieve_stress	DannyLIB/src/relieve_stress.c	/^void register_relieve_stress(uint8_t pos, uint8_t value, relieve_act_em act) {$/;"	f	typeref:typename:void
+relieve_act_em	DannyLIB/inc/relieve_stress.h	/^} relieve_act_em;$/;"	t	typeref:enum:__anonb7a5d4730203
+relieve_em	DannyLIB/inc/relieve_stress.h	/^} relieve_em;$/;"	t	typeref:enum:__anonb7a5d4730103
+relieve_stress	DannyLIB/src/relieve_stress.c	/^relieve_stress_t relieve_stress = {   \\$/;"	v	typeref:typename:relieve_stress_t
+relieve_stress_t	DannyLIB/inc/relieve_stress.h	/^} relieve_stress_t;$/;"	t	typeref:struct:_relieve_stress_t
+relieve_unit	DannyLIB/inc/relieve_stress.h	/^    relieve_unit_t relieve_unit[MAX_RELIEVE_REGISTER];$/;"	m	struct:_relieve_stress_t	typeref:typename:relieve_unit_t[]
+relieve_unit_t	DannyLIB/inc/relieve_stress.h	/^} relieve_unit_t;$/;"	t	typeref:struct:_relieve_unit_t
+removeElements	leetcode/203_Remove_Linked_List_Elements.c	/^struct ListNode *removeElements(struct ListNode *head, int val) {$/;"	f	typeref:struct:ListNode *
+reverseBits	leetcode/190_Reverse_Bits.c	/^uint32_t reverseBits(uint32_t n) {$/;"	f	typeref:typename:uint32_t
+right	DannyLIB/inc/dblinklist.h	/^    struct _dbnode_t *right;$/;"	m	struct:_dbnode_t	typeref:struct:_dbnode_t *
+right	DannyLIB/inc/gl_dblinklist.h	/^    struct _gl_node_t *right;$/;"	m	struct:_gl_node_t	typeref:struct:_gl_node_t *
+right	DannyLIB/inc/tree.h	/^    struct _tree_node_t *right;$/;"	m	struct:_tree_node_t	typeref:struct:_tree_node_t *
+right	leetcode/111_Minimum_Depth_of_Binary_Tree.c	/^    struct TreeNode *right;$/;"	m	struct:TreeNode	typeref:struct:TreeNode *	file:
+rmv_t	DannyLIB/inc/rmv.h	/^} rmv_t;$/;"	t	typeref:struct:_rm_t
+save_free_address	DannyLIB/src/dmatrix2d.c	/^static float **save_free_address[MAX_ITER_DET_MATRIX];$/;"	v	typeref:typename:float ** []	file:
+save_pos	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^void save_pos(save_pos_t *sv_pos, int row, int col) {$/;"	f	typeref:typename:void
+save_pos_t	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^} save_pos_t;$/;"	t	typeref:struct:_save_pos	file:
+search	DannyLIB/src/tree.c	/^void search(tree_node_t *n) {$/;"	f	typeref:typename:void
+search_nodes	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^save_pos_t *search_nodes(int **grid, int row, int col, int gridSize) {$/;"	f	typeref:typename:save_pos_t *
+self	smlib/sm.h	/^    struct _sm_t *self;$/;"	m	struct:_sm_t	typeref:struct:_sm_t *
+sem1	test_posix/test_semphr.c	/^sem_t sem1;$/;"	v	typeref:typename:sem_t
+sem2	test_posix/test_semphr.c	/^sem_t sem2;$/;"	v	typeref:typename:sem_t
+shortestPathBinaryMatrix	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^int shortestPathBinaryMatrix(int** grid, int gridSize, int* gridColSize) {$/;"	f	typeref:typename:int
+sm_even	smlib/sm.h	/^#define sm_even(/;"	d
+sm_step	smlib/sm.h	/^#define sm_step(/;"	d
+sm_t	smlib/sm.h	/^}sm_t;$/;"	t	typeref:struct:_sm_t
+sm_trans_def	smlib/sm.h	/^#define sm_trans_def(/;"	d
+sm_trans_def	test/test_sm.c	/^sm_trans_def(A, sm_t *sm, void *para) {$/;"	f
+sm_trans_def	test/test_sm.c	/^sm_trans_def(B, sm_t *sm, void *para){$/;"	f
+sm_trans_def	test/test_sm.c	/^sm_trans_def(C, sm_t *sm, void *para){$/;"	f
+sm_trans_func_t	smlib/sm.h	/^typedef void (*sm_trans_func_t)(sm_t *sm, void *content);$/;"	t	typeref:typename:void (*)(sm_t * sm,void * content)
+sortArrayByParity	leetcode/905_Sort_Array_By_Parity_I.c	/^int *sortArrayByParity(int *nums, int numsSize, int *returnSize){$/;"	f	typeref:typename:int *
+sortArrayByParityII	leetcode/922_Sort_Array_By_Parity_II.c	/^int *sortArrayByParityII(int *nums, int numsSize, int *returnSize){$/;"	f	typeref:typename:int *
+sorting	leetcode/1619_Mean_After_Removing_Some_Elements.c	/^void sorting(int *arr, int arrSize) {$/;"	f	typeref:typename:void
+state	DannyLIB/src/relieve_stress.c	/^static uint8_t state = 0;$/;"	v	typeref:typename:uint8_t	file:
+state	smlib/sm.h	/^    uint8_t state;$/;"	m	struct:_sm_t	typeref:typename:uint8_t
+step	test/test_sm.c	/^void step(sm_t *sm) {$/;"	f	typeref:typename:void
+subsetXORSum	leetcode/1863_Sum_of_All_Subset_XOR_Totals.c	/^int subsetXORSum(int *nums, int numsSize){$/;"	f	typeref:typename:int
+subtractProductAndSum	leetcode/1281_Subtract_the_Product_and_Sum_of_Digits.c	/^int subtractProductAndSum(int n) {$/;"	f	typeref:typename:int
+sumOddLengthSubarrays	leetcode/1588_Sum_of_All_Odd_Length_Subarrays.c	/^int sumOddLengthSubarrays(int *arr, int arrSize) {$/;"	f	typeref:typename:int
+sum_deepest	leetcode/1302_deepest_sum.c	/^void sum_deepest(struct _dbnode_t *n, int level, int *maxlevel, int *sum_d) {$/;"	f	typeref:typename:void
+swap	leetcode/1619_Mean_After_Removing_Some_Elements.c	/^void swap(int *a, int *b) {$/;"	f	typeref:typename:void
+tail_i	DannyLIB/inc/circular_buf.h	/^  uint16_t tail_i;$/;"	m	struct:_circular_buf_t	typeref:typename:uint16_t
+task_1	test_posix/test_mutex.c	/^void *task_1(void *arg) {$/;"	f	typeref:typename:void *
+task_1	test_posix/test_semphr.c	/^void *task_1(void *arg) {$/;"	f	typeref:typename:void *
+task_1	test_posix/test_simple_pthread.c	/^void *task_1(void *arg) {$/;"	f	typeref:typename:void *
+task_2	test_posix/test_mutex.c	/^void *task_2(void *arg) {$/;"	f	typeref:typename:void *
+task_2	test_posix/test_semphr.c	/^void *task_2(void *arg) {$/;"	f	typeref:typename:void *
+test_array	leetcode/1346_Check_If_N_and_Its_Double_Exist.c	/^int test_array[] = {0, 0};$/;"	v	typeref:typename:int[]
+test_array	leetcode/1588_Sum_of_All_Odd_Length_Subarrays.c	/^int test_array[] = {1, 4, 2, 5, 3};$/;"	v	typeref:typename:int[]
+test_array	leetcode/1619_Mean_After_Removing_Some_Elements.c	/^int test_array[] = {$/;"	v	typeref:typename:int[]
+test_array	leetcode/905_Sort_Array_By_Parity_I.c	/^int test_array[] = {3, 1, 2, 4};$/;"	v	typeref:typename:int[]
+test_array	leetcode/922_Sort_Array_By_Parity_II.c	/^int test_array[] = {4,2,5,7};$/;"	v	typeref:typename:int[]
+test_exchange	leetcode/1518_Water_Bottles.c	/^int test_exchange = 4;$/;"	v	typeref:typename:int
+test_func	test_matrix/test_least_square.c	/^float test_func(float x) {$/;"	f	typeref:typename:float
+test_gain	leetcode/1732_largestAltitude.c	/^int test_gain[] = {-4,-3,-2,-1,4,3,2};  \/\/ answer 0$/;"	v	typeref:typename:int[]
+test_grid	leetcode/1091_Shortest_Path_in_Binary_Matrix.c	/^const int test_grid[6][6] = {   \/\/ answer 14$/;"	v	typeref:typename:const int[6][6]
+test_move	leetcode/657_Robot_Return_to_Origin.c	/^char test_move[] = "LDRRLRUULR";$/;"	v	typeref:typename:char[]
+test_mutex	test_posix/test_mutex.c	/^pthread_mutex_t test_mutex;$/;"	v	typeref:typename:pthread_mutex_t
+test_num	leetcode/1394_Find_Lucky_Integer_in_an_Array.c	/^int test_num[] = {1,2,2,3,3,3};  \/\/ answer is 3$/;"	v	typeref:typename:int[]
+test_num	leetcode/1518_Water_Bottles.c	/^int test_num = 15;$/;"	v	typeref:typename:int
+test_num	leetcode/1863_Sum_of_All_Subset_XOR_Totals.c	/^int test_num[] = {10,5,8,3,6,12,2,4,11,7,1,9};  \/\/ answer is 30720$/;"	v	typeref:typename:int[]
+test_num	leetcode/413_Arithmetic_Slices.c	/^int test_num[] = {1, 2, 3, 8, 9, 10, 20};  \/\/ answer is 2$/;"	v	typeref:typename:int[]
+test_num	leetcode/421_Maximum_XOR_of_Two_Numbers_in_an_Array.c	/^int test_num[] = {3,10,5,25,2,8};  \/\/ output: 18$/;"	v	typeref:typename:int[]
+test_packet_queue	test/test_packet_queue.c	/^packet_queue_t test_packet_queue;$/;"	v	typeref:typename:packet_queue_t
+test_ranges	leetcode/1893_Check_if_All_the_Integers_in_a_Range_Are_Covered.c	/^const int test_ranges[1][2] = {   \/\/ answer false$/;"	v	typeref:typename:const int[1][2]
+test_s	leetcode/242_ValidAnagram.c	/^char test_s[] = "anagram";$/;"	v	typeref:typename:char[]
+test_salary	leetcode/1491_average_salary.c	/^int test_salary[] = {4000,3000,1000,2000};   \/\/ answer should be 2500$/;"	v	typeref:typename:int[]
+test_str	leetcode/1221_Split_a_String_in_Balanced_Strings.c	/^char test_str[] = "RLRRRLLRLL";$/;"	v	typeref:typename:char[]
+test_str	leetcode/1805_Number_of_Different_Integers_in_a_String.c	/^char test_str[] = "a123bc34d8ef34";$/;"	v	typeref:typename:char[]
+test_string	leetcode/1309_Decrypt_String_from_Alphabet_to_Integer_Mapping.c	/^char test_string[] = "912#19#26#819#1722#219#19#10#10#26#74422#21#12#26#1923#10#23#24#4113#11#13/;"	v	typeref:typename:char[]
+test_string	leetcode/1758_Minimum_Changes_To_Make_Alternating_Binary_String.c	/^char test_string[] = "1010";$/;"	v	typeref:typename:char[]
+test_struct_t	test/test_glue_application.c	/^} test_struct_t;$/;"	t	typeref:struct:_test_struct_t	file:
+test_struct_t	test/test_offset_macro.c	/^} test_struct_t;$/;"	t	typeref:struct:_test_struct_t	file:
+test_t	leetcode/242_ValidAnagram.c	/^char test_t[] = "nagaram";$/;"	v	typeref:typename:char[]
+tick	DannyLIB/src/relieve_stress.c	/^static uint32_t tick = 0;$/;"	v	typeref:typename:uint32_t	file:
+timer_handler	test_posix/test_posix_timer.c	/^void timer_handler(union sigval arg) {$/;"	f	typeref:typename:void
+trans_cb	smlib/sm.h	/^    sm_trans_func_t trans_cb;$/;"	m	struct:_mapping_t	typeref:typename:sm_trans_func_t
+transposef	DannyLIB/src/dmatrix2d.c	/^float **transposef(float **mat, int row, int col) {$/;"	f	typeref:typename:float **
+tree_node_t	DannyLIB/inc/tree.h	/^} tree_node_t;$/;"	t	typeref:struct:_tree_node_t
+trimMean	leetcode/1619_Mean_After_Removing_Some_Elements.c	/^double trimMean(int *arr, int arrSize){$/;"	f	typeref:typename:double
+val	leetcode/111_Minimum_Depth_of_Binary_Tree.c	/^    int val;$/;"	m	struct:TreeNode	typeref:typename:int	file:
+val	leetcode/203_Remove_Linked_List_Elements.c	/^    int val;$/;"	m	struct:ListNode	typeref:typename:int	file:
+val	leetcode/234_Palindrome_Linked_List.c	/^    int val;$/;"	m	struct:ListNode	typeref:typename:int	file:
+value	DannyLIB/inc/relieve_stress.h	/^    uint8_t value;$/;"	m	struct:_relieve_unit_t	typeref:typename:uint8_t
+var1	test/test_sm.c	/^    uint8_t var1;$/;"	m	struct:_var_C_t	typeref:typename:uint8_t	file:
+var2	test/test_sm.c	/^    uint8_t var2;$/;"	m	struct:_var_C_t	typeref:typename:uint8_t	file:
+var_A_t	test/test_sm.c	/^typedef uint8_t var_A_t;$/;"	t	typeref:typename:uint8_t	file:
+var_B_t	test/test_sm.c	/^typedef uint8_t var_B_t;$/;"	t	typeref:typename:uint8_t	file:
+var_C_t	test/test_sm.c	/^}var_C_t;$/;"	t	typeref:struct:_var_C_t	file:
+volatile	build/CMakeFiles/3.22.0/CompilerIdC/CMakeCCompilerId.c	/^# define volatile$/;"	d	file:
+x	DannyLIB/inc/rmv.h	/^    float *x;         \/\/ x[k]$/;"	m	struct:_rm_t	typeref:typename:float *
+x_buf	test/test_rmv.c	/^float x_buf[WINDOW_SIZE];$/;"	v	typeref:typename:float[]
+xor_subset_sum	leetcode/1863_Sum_of_All_Subset_XOR_Totals.c	/^void xor_subset_sum(int *nums, int *sum_xor, int *arr, int arr_index, int k, int numsSize) {$/;"	f	typeref:typename:void
+y	test/test_newton.c	/^float y[] = {-1000.0,-880.1000000000058,-760.4000000000015,-640.9000000000015,-521.5999999999985/;"	v	typeref:typename:float[]
