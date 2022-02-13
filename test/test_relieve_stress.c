@@ -7,9 +7,6 @@
 relieve_stress_t relieve_stress;
 
 int main() {
-
-    printf("%d\n", time(NULL));
-
     reset_relieve_stress(&relieve_stress);
     set_relieve_stress_mode(&relieve_stress, RELIEVE_TIME_MODE);
     register_relieve_stress(&relieve_stress, 1, RELIEVE_PASS | 3, RELIEVE_INFLATE);

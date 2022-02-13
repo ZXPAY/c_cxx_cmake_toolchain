@@ -10,6 +10,7 @@ foreach(file ${TEST_FILES})
     target_link_libraries(${barefile} PUBLIC 
         mylib
         DannyLIB
+        algo_lib
         m
     )
 endforeach()

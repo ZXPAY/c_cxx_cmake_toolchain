@@ -11,7 +11,9 @@ option(BUILD_Posix OFF)
 option(BUILD_x86_32 OFF)
 
 set(DannyLIB_PATH ${CMAKE_CURRENT_SOURCE_DIR}/DannyLIB)
-
+set(AlgoLIB_PATH 
+    ${CMAKE_CURRENT_SOURCE_DIR}/algorithm/data_structure
+    )
 
 set(CFLAGS
     -Wall
@@ -36,10 +38,14 @@ add_link_options(${LDFLAGS})
 
 
 add_subdirectory(DannyLIB)
+add_subdirectory(algorithm)
+
 set(DEPEN_DIR
     ${DEPEN_DIR}
     ${DannyLIB_PATH}/inc
+    ${AlgoLIB_PATH}/inc
 )
+
 
 
 # Assembly file
@@ -73,6 +79,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC divlib)
 target_link_libraries(${PROJECT_NAME} PUBLIC 
     mylib
     DannyLIB
+    algo_lib
     m
     )
 
