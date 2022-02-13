@@ -20,29 +20,29 @@ typedef enum queuelink_er_em {
         queuelink_node_##type##_t *tail;                                                      \
         int count;                                                                            \
     } queuelink_##type##_t;                                                                   \
-    queuelink_er_em offer_queuelink_##type(queuelink_##type##_t *queuelink, type *tdata) {   \
+    queuelink_er_em offer_queuelink_##type(queuelink_##type##_t *queuelink, type *tdata) {    \
         queuelink_node_##type##_t *node =                                                     \
             (queuelink_node_##type##_t *)malloc(sizeof(queuelink_node_##type##_t));           \
         node->next = NULL;                                                                    \
         memcpy(&node->value, tdata, sizeof(type));                                            \
-        if(queuelink->head == NULL) {                                                        \
+        if(queuelink->head == NULL) {                                                         \
             queuelink->head = node;                                                           \
             queuelink->tail = node;                                                           \
         }                                                                                     \
         else {                                                                                \
-            queuelink->tail->next = node;                                                    \
-            queuelink->tail = node;                                                          \
+            queuelink->tail->next = node;                                                     \
+            queuelink->tail = node;                                                           \
         }                                                                                     \
-        queuelink->count++;                                                                  \
+        queuelink->count++;                                                                   \
         return QUEUELINK_OK;                                                                  \
     }                                                                                         \
-    queuelink_er_em poll_queuelink_##type(queuelink_##type##_t *queuelink, type *rdata) {    \
-        if(queuelink->head == NULL) return QUEUELINK_EMPTY;                                  \
-        memcpy(rdata, &queuelink->head->value, sizeof(type));                                \
-        queuelink_node_##type##_t *tmp = queuelink->head;                                    \
-        queuelink->head = queuelink->head->next;                                            \
+    queuelink_er_em poll_queuelink_##type(queuelink_##type##_t *queuelink, type *rdata) {     \
+        if(queuelink->head == NULL) return QUEUELINK_EMPTY;                                   \
+        memcpy(rdata, &queuelink->head->value, sizeof(type));                                 \
+        queuelink_node_##type##_t *tmp = queuelink->head;                                     \
+        queuelink->head = queuelink->head->next;                                              \
         free(tmp);                                                                            \
-        queuelink->count--;                                                                  \
+        queuelink->count--;                                                                   \
         return QUEUELINK_OK;                                                                  \
     }                                                                                         \
     inline int get_queuelink_size_##type(queuelink_##type##_t *queuelink_) {                  \
