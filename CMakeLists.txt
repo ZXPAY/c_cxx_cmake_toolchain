@@ -98,3 +98,5 @@ add_subdirectory(leetcode)
 # generate the test matrix executable file
 add_subdirectory(test_matrix)
 
+# generate the course files
+add_subdirectory(course_practice)
