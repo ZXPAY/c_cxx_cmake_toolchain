@@ -4,6 +4,10 @@
 #include <assert.h>
 
 
+/*
+* Sorting and branch, BST pre-order
+*/
+
 int test_array[] = {20, 10, 50, 30, 70, 60, 40};
 #define ARRAY_SIZE  (sizeof(test_array) / sizeof(int))
 
