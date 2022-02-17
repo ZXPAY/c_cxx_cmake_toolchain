@@ -17,14 +17,7 @@ post-order: 1, 3 ,4, 2, 7, 6, 5
 */
 
 
-typedef struct _dblinklist_t {
-    struct _dblinklist_t *left;
-    struct _dblinklist_t *right;
-    int val;
-} dblinklist_t;
-
-
-QUEUE_DEFINE(dblinklist_t, 10);
+QUEUE_DEFINE(int, 10);
 
 
 int test_array[] = {
@@ -36,25 +29,29 @@ void bfs_handler(int value) {
     printf("%d, ", value);
 }
 
-void traverse_bfs(dblinklist_t *root) {
-    queue_dblinklist_t_t myqueue = MY_QUEUE_INIT;
+void traverse_bfs(int *nums, int length) {
+    queue_int_t myqueue = MY_QUEUE_INIT;
 
-    offer_queue_dblinklist_t(&myqueue, root);
+    int i_root = 0;
+    offer_queue_int(&myqueue, &i_root);
 
     while(true) {
-        printf("size: %d\n", get_queue_size_dblinklist_t(&myqueue));
-        if(get_queue_size_dblinklist_t(&myqueue) == 0) break;
+        if(get_queue_size_int(&myqueue) == 0) break;
+        int i_poll = 0;
+        poll_queue_int(&myqueue, &i_poll);
 
-        dblinklist_t tmp;
-        poll_queue_dblinklist_t(&myqueue, &tmp);
-        // if(tmp == NULL) continue;
+        if(i_poll >= length) continue;
+        if(nums[i_poll] == 0) continue;
 
-        // printf("%d, %p, %p\n", tmp.val, tmp.left, tmp.right);
-        bfs_handler(tmp.val);
+        bfs_handler(nums[i_poll]);
 
         /* data flow */
-        offer_queue_dblinklist_t(&myqueue, tmp.left);
-        offer_queue_dblinklist_t(&myqueue, tmp.right);
+        int i_left = (i_poll + 1) * 2 - 1;
+        int i_right = (i_poll + 1) * 2;
+
+        offer_queue_int(&myqueue, &i_left);
+        offer_queue_int(&myqueue, &i_right);
+
     }
 
 }
@@ -68,42 +65,9 @@ int main() {
     }
     printf("\n");
 
-    /* Build the tree */
-    dblinklist_t *node[ARRAY_SIZE];
-
-    for(int i=0;i<ARRAY_SIZE;i++) {
-        if(test_array[i] == 0) {
-            node[i] = NULL;
-            continue;
-        }
-        node[i] = (dblinklist_t *)malloc(sizeof(dblinklist_t));
-        node[i]->left = NULL;
-        node[i]->right = NULL;
-        node[i]->val = test_array[i];
-    }
-
-    dblinklist_t *root = node[0];
-
-    for(int i=0;i<ARRAY_SIZE-1;i++) {
-        int i_left = (i + 1) * 2 - 1; 
-        int i_right = (i + 1) * 2; 
-
-        if(test_array[i] == 0) continue;
-
-        dblinklist_t *temp = node[i];
-
-        if(i_left < ARRAY_SIZE) {
-            temp->left = node[i_left];            
-        }
-        if(i_right < ARRAY_SIZE) {
-            temp->right = node[i_right];   
-        }
-
-    }
-
     printf("start BFS traverse\n");
-    traverse_bfs(root);
-
+    traverse_bfs(test_array, ARRAY_SIZE);
+    printf("\n");
     printf("end\n");
 
 }
