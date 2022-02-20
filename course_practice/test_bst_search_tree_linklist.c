@@ -93,18 +93,36 @@ dblinklist_t *bst_searchtree_search(dblinklist_t *node, int val) {
     }
 }
 
-// dblinklist_t *delete_node;
-int f = 0;
+dblinklist_t *get_min(dblinklist_t *node) {
+    dblinklist_t *tmp = node;
+    while(true) {
+        if(tmp->left == NULL) {
+            break;
+        }
+        tmp = tmp->left;
+    }
+    return tmp;
+}
+
+void swap_node_value(dblinklist_t *node1, dblinklist_t *node2) {
+    int tmp = node1->val;
+    node1->val = node2->val;
+    node2->val = tmp;
+}
+
 dblinklist_t *bst_searchtree_delete_help(dblinklist_t **node, int val, dblinklist_t **delete_node) {
     if(*node == NULL) return NULL;
 
     if((*node)->val == val) {
         // X X
         if((*node)->left == NULL && (*node)->right == NULL) {
+            *delete_node = *node;
+            *node = NULL;
             return (*node);
         }
         // X V
         else if((*node)->left == NULL && (*node)->right != NULL) {
+            *delete_node = *node;
             node = &(*node)->right;
             return (*node);
         }
@@ -117,18 +135,24 @@ dblinklist_t *bst_searchtree_delete_help(dblinklist_t **node, int val, dblinklis
         }
         // V V
         else if((*node)->left != NULL && (*node)->right != NULL) {
-
+            // Step1: swap the delete node and min(right tree)
+            dblinklist_t *min_node = get_min((*node)->right);
+            swap_node_value((*node), min_node);   // the same memory
+            // Step2: delete recursive again
+            dblinklist_t *tmp_node = bst_searchtree_delete_help(&(*node)->right, val, delete_node);
+            if((*node)->right != tmp_node) {
+                (*node)->right = tmp_node;
+            }
         }
     }
     else if((*node)->val > val) {
-        dblinklist_t * node_child = bst_searchtree_delete_help(&(*node)->left, val, delete_node);
+        dblinklist_t *node_child = bst_searchtree_delete_help(&(*node)->left, val, delete_node);
         if((*node)->left != node_child) {
             (*node)->left = node_child;
         }
     }
     else if((*node)->val < val) {
-        dblinklist_t * node_child = bst_searchtree_delete_help(&(*node)->right, val, delete_node);
-        printf("child: %p, %p\n", *node, node_child);
+        dblinklist_t *node_child = bst_searchtree_delete_help(&(*node)->right, val, delete_node);
         if((*node)->right != node_child) {
             (*node)->right = node_child;
         }
@@ -136,6 +160,7 @@ dblinklist_t *bst_searchtree_delete_help(dblinklist_t **node, int val, dblinklis
 
     return (*node);
 }
+
 void bst_searchtree_delete(dblinklist_t *node, int val) {
     if(node == NULL) return;
 
@@ -147,6 +172,14 @@ void bst_searchtree_delete(dblinklist_t *node, int val) {
     // free the delete node
     free(*delete_node);
     free(delete_node);
+}
+
+void print_tree_preorder(dblinklist_t *node) {
+    if(node == NULL) return;
+
+    printf("print: %d\n", node->val);
+    print_tree_preorder(node->left);
+    print_tree_preorder(node->right);
 }
 
 int main() {
@@ -169,10 +202,9 @@ int main() {
     }
     printf("%d\n", root->val);
 
-    printf("before %p, %d\n", root->left->right, root->left->right->val);
-    bst_searchtree_delete(root, 4);
-    printf("after %p, %d\n", root->left->right, root->left->right->val);
+    bst_searchtree_delete(root, 2);
 
+    print_tree_preorder(root);
 
     return 0;
 }
