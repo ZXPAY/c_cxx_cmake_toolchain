@@ -12,7 +12,7 @@
 
 int hammingWeight(uint32_t n) {
     int cnt = 0;
-    for(int i=0;i<32-__builtin_clz(n);i++) if(n & (1<<i)) cnt++;
+    for(int i=0;i<32;i++) if(n & (1<<i)) cnt++;
     return cnt;
 }
 
