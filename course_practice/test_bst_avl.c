@@ -4,14 +4,6 @@
 #include <stdbool.h>
 #include <assert.h>
 
-/*
-                5
-        2               6
-    1       4       X       7
-   X X     3 X     X X     X  X
-
-*/
-
 typedef struct _dblinklist_t {
     struct _dblinklist_t *left;
     struct _dblinklist_t *right;
@@ -22,9 +14,31 @@ dblinklist_t *build_tree(int *nums, int length);
 dblinklist_t *bst_searchtree_add(dblinklist_t *node, int val);
 
 
+/* right-right */
+// int test_array[] = {
+    // 3, 4, 5
+// };
+
+/* left-left */
+// int test_array[] = {
+    // 5, 4, 3
+// };
+
+/* left-right */
+// int test_array[] = {
+    // 5, 3, 4
+// };
+
+/* right-left */
+// int test_array[] = {
+//     3, 5, 4
+// };
+
+/* test */
 int test_array[] = {
-    5, 2, 6, 1, 4, 0, 7, 0, 0, 3, 0, 0, 0, 0, 0 
+    100, 80, 60, 40, 20, 70
 };
+
 #define ARRAY_SIZE  (sizeof(test_array) / sizeof(int))
 
 dblinklist_t *build_tree(int *nums, int length) {
@@ -41,6 +55,105 @@ dblinklist_t *build_tree(int *nums, int length) {
     }
 
     return root;
+}
+
+dblinklist_t *rotate_left(dblinklist_t *node) {
+    assert(node!=NULL);
+    assert(node->right!=NULL);
+    dblinklist_t *node_old = node;
+    dblinklist_t *node_new = node->right;
+    dblinklist_t *node_sub = node->right->left;
+    
+    node_old->right = node_sub;
+    node_new->left = node_old;
+    
+    return node_new;
+}
+
+dblinklist_t *rotate_right(dblinklist_t *node) {
+    assert(node!=NULL);
+    assert(node->left!=NULL);
+    dblinklist_t *node_old = node;
+    dblinklist_t *node_new = node->left;
+    dblinklist_t *node_sub = node->left->right;
+    node_old->left = node_sub;
+    node_new->right = node_old;
+    
+    return node_new;
+}
+
+int get_depth(dblinklist_t *node) {
+    if(node == NULL) return 0;
+    int l_depth = 1 + get_depth(node->left);
+    int r_depth = 1 + get_depth(node->right);
+
+    if(l_depth > r_depth) return l_depth;
+    return r_depth;
+}
+
+// return left depth - right depth
+int get_depth_gap(dblinklist_t *node) {
+    if(node == NULL) return 0;
+    return get_depth(node->left) - get_depth(node->right);
+}
+
+dblinklist_t *balance_tree(dblinklist_t *node) {
+    int depth_gap = get_depth_gap(node);
+    if(depth_gap <= 1 && depth_gap >= -1) return node;
+
+    if(depth_gap > 1) {
+        // left is deeper
+        dblinklist_t *node_left_result = balance_tree(node->left);
+        if(node->left != node_left_result) {
+            node->left = node_left_result;
+        }
+    }
+    else if(depth_gap < -1) {
+        // right is deeper
+        dblinklist_t *node_right_result = balance_tree(node->right);
+        if(node->right != node_right_result) {
+            node->right = node_right_result;
+        }
+    }
+
+    if(depth_gap > 1) {
+        // left is deeper
+        int depth_gap_nextlayer = get_depth_gap(node->left);
+        if(depth_gap_nextlayer >= 0) {
+            printf("left-left\n");
+        }
+        else {
+            printf("left-right\n");
+            dblinklist_t *node_left_result = rotate_left(node->left);
+            if(node != node_left_result) {
+                node->left = node_left_result;
+            }
+        }
+        dblinklist_t *node_result = rotate_right(node);
+        if(node != node_result) {
+            node = node_result;
+        }
+    }
+    else if(depth_gap < -1) {
+        // left is deeper
+        int depth_gap_nextlayer = get_depth_gap(node->right);
+        if(depth_gap_nextlayer <= 0) {
+            printf("right-right\n");
+        }
+        else {
+            printf("right-left\n");
+            dblinklist_t *node_right_result = rotate_right(node->right);
+            if(node != node_right_result) {
+                node->right = node_right_result;
+            }
+        }
+
+        dblinklist_t *node_result = rotate_left(node);
+        if(node != node_result) {
+            node = node_result;
+        }
+    }
+    return node;
 }
 
 dblinklist_t *bst_searchtree_add(dblinklist_t *node, int val) {
@@ -74,7 +187,7 @@ dblinklist_t *bst_searchtree_add(dblinklist_t *node, int val) {
         }
     }
 
-    return node;
+    return balance_tree(node);
 }
 
 dblinklist_t *bst_searchtree_search(dblinklist_t *node, int val) {
@@ -156,7 +269,7 @@ dblinklist_t *bst_searchtree_delete_help(dblinklist_t **node, int val, dblinklis
         }
     }
 
-    return (*node);
+    return balance_tree(*node);
 }
 
 void bst_searchtree_delete(dblinklist_t *node, int val) {
@@ -190,20 +303,26 @@ int main() {
 
 
     dblinklist_t *root = build_tree(test_array, ARRAY_SIZE);
+    printf("Final root: %p\n", root);
 
-    dblinklist_t *node = bst_searchtree_search(root, 6);
-    if(node != NULL) {
-        printf("search: %p, %d\n", node, node->val);
-    }
-    else {
-        printf("not found\n");
-    }
-    printf("%d\n", root->val);
+    /* Use the test array {3, 4, 5} */
+    // printf("%p, %p, %p\n", root, root->left, root->right);
+    // root = rotate_left(root);
+    // printf("%p, %p, %p\n", root, root->left, root->right);
 
-    bst_searchtree_delete(root, 2);
+    /* Use the test array {5, 4, 3} */
+    // printf("%p, %p, %p\n", root, root->left, root->right);
+    // root = rotate_right(root);
+    // printf("%p, %p, %p\n", root, root->left, root->right);
+
 
     print_tree_preorder(root);
-
+    printf("left-right depth = %d\n", get_depth_gap(root));
+    
+    bst_searchtree_delete(root, 80);
+    print_tree_preorder(root);
+    printf("left-right depth = %d\n", get_depth_gap(root));
     return 0;
 }
+
 
