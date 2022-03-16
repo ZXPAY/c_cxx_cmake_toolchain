@@ -17,56 +17,100 @@ void put(int key, int value) Update the value of the key if the key exists. Othe
 The functions get and put must each run in O(1) average time complexity.
 */
 
-typedef struct _key_val_t {
+typedef struct _dblinklist_t {
+    struct _dblinklist_t *next;
+    struct _dblinklist_t *prev;
     int key;
     int value;
-} key_value_t;
+} dblinklist_t;
 
 typedef struct {
-    key_value_t *key_value;
-    int *used_count;
+    dblinklist_t *root;
     int count;
-    int capacity;    
+    int capacity;
 } LRUCache;
+
+dblinklist_t *create_node(int key, int value) {
+    dblinklist_t *node = malloc(sizeof(dblinklist_t));
+    memset(node, 0, sizeof(dblinklist_t));
+    node->key = key;
+    node->value = value;
+
+    printf("%p: %d\n", node, node->key);
+
+    return node;
+}
 
 LRUCache *lRUCacheCreate(int capacity) {
     LRUCache *lru_cache = malloc(sizeof(LRUCache));
-    key_value_t *key_value = malloc(sizeof(key_value_t)*capacity);    
-    int *used_count = malloc(sizeof(int)*capacity);    
     memset(lru_cache, 0, sizeof(LRUCache));
-    memset(key_value, 0, sizeof(key_value_t)*capacity);
-    memset(used_count, 0, sizeof(int)*capacity);
-
     lru_cache->capacity = capacity;
-    lru_cache->key_value = key_value;
-    lru_cache->used_count = used_count;
+
     return lru_cache;
 }
 
 int lRUCacheGet(LRUCache *obj, int key) {
-    for(int i=0;i<obj->count;i++) {
-        if(obj->key_value[i].key == key) {
-            obj->used_count[i]++;
-            return obj->key_value[i].value;
+    dblinklist_t *temp = obj->root;
+    int result = -1;
+    while(temp != NULL) {
+        if(temp->key == key) {
+            result = temp->value;
+            break;
         }
+        temp = temp->next;
     }
 
-    return -1;
+    if(temp != NULL) {
+        dblinklist_t *target_next = temp->next;
+        dblinklist_t *target_prev = temp->prev;
+        printf("%p, %p, %p\n", temp, target_next, target_prev);
+        if(target_next != NULL) {
+            target_next->prev = target_prev;
+        }
+        if(target_prev != NULL) {
+            target_prev->next = target_next;
+        }
+        if(obj->root != temp) {
+            obj->root->prev = temp;
+            temp->next = obj->root;
+            obj->root = temp;
+        }
+    }
+    printf("%p, %p\n", obj->root, obj->root->next);
+
+    return result;
 }
 
 void lRUCachePut(LRUCache *obj, int key, int value) {
-    for(int i=0;i<obj->count;i++) {
-        if(obj->key_value[i].key == key) {
-            obj->key_value[i].value = value;
+    dblinklist_t *temp = obj->root;
+    dblinklist_t *last_node = temp;
+    while(temp != NULL) {
+        if(temp->key == key) {
+            temp->value = value;
             return;
         }
+        last_node = temp;
+        temp = temp->next;
     }
     if(obj->count < obj->capacity) {
-        obj->key_value[obj->count].key = key;
-        obj->key_value[obj->count++].value = value;
+        if(obj->count == 0) {
+            obj->root = create_node(key, value);
+        }
+        else {
+            last_node->next = create_node(key, value);
+            last_node->next->prev = last_node;
+        }
+        obj->count++;
     }
     else {
-
+        dblinklist_t *new_root = create_node(key, value);
+        obj->root->prev = new_root;
+        new_root->next = obj->root;
+        obj->root = new_root;
+        if(last_node->prev != NULL)
+            last_node->prev->next = NULL;
+        printf("%d\n", last_node->value);
+        free(last_node);
     }
 }
 
@@ -91,6 +135,7 @@ int main(int argc, char *argv[]) {
     int val1 = lRUCacheGet(lRUCache, 1);    // return 1
     lRUCachePut(lRUCache, 3, 3);            // LRU key was 2, evicts key 2, cache is {1=1, 3=3}
     int val2 = lRUCacheGet(lRUCache, 2);    // returns -1 (not found)
+    printf("===\n");
     lRUCachePut(lRUCache, 4, 4);            // LRU key was 1, evicts key 1, cache is {4=4, 3=3}
     int val3 = lRUCacheGet(lRUCache, 1);    // return -1 (not found)
     int val4 = lRUCacheGet(lRUCache, 3);    // return 3
@@ -99,11 +144,11 @@ int main(int argc, char *argv[]) {
     /*
     ans: 1,-1,-1,3,4
     */
-    printf("%d\n", val1);
-    printf("%d\n", val2);
-    printf("%d\n", val3);
-    printf("%d\n", val4);
-    printf("%d\n", val5);
+    // printf("%d\n", val1);
+    // printf("%d\n", val2);
+    // printf("%d\n", val3);
+    // printf("%d\n", val4);
+    // printf("%d\n", val5);
 
 }
 
