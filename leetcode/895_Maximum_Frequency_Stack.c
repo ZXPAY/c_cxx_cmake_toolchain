@@ -97,6 +97,23 @@ FreqStack* freqStackCreate() {
     return freq_stack;
 }
 
+int get_max_count(FreqStack *obj) {
+    stack_dblinklist_t *temp_node = obj->head;
+    int max_count = 0;
+    // find max count
+    while(temp_node != NULL) {
+        map_para_t *temp_para = NULL;
+
+        search(obj->hash_map, temp_node->val, obj->map_length, &temp_para);
+        
+        if(max_count < temp_para->count) max_count = temp_para->count;
+
+        temp_node = temp_node->next;
+    }
+    
+    return max_count;
+}
+
 void freqStackPush(FreqStack *obj, int val) {
     stack_dblinklist_t *node = create_node(val);
 
@@ -131,23 +148,6 @@ void freqStackPush(FreqStack *obj, int val) {
     }
 
     obj->max_count = get_max_count(obj);
-}
-
-int get_max_count(FreqStack *obj) {
-    stack_dblinklist_t *temp_node = obj->head;
-    int max_count = 0;
-    // find max count
-    while(temp_node != NULL) {
-        map_para_t *temp_para = NULL;
-
-        search(obj->hash_map, temp_node->val, obj->map_length, &temp_para);
-        
-        if(max_count < temp_para->count) max_count = temp_para->count;
-
-        temp_node = temp_node->next;
-    }
-    
-    return max_count;
 }
 
 int freqStackPop(FreqStack *obj) {
