@@ -6,8 +6,8 @@
 #include <assert.h>
 #include <math.h>
 
-int test_array[] = {1, 3, 2, 5};    // 2
-// int test_array[] = {1,3,2,5,3,0,9}; //4
+// int test_array[] = {1, 3, 2, 5};    // 2
+int test_array[] = {1,3,2,5,3,0,9}; //4
 #define ARRAY_SIZE  ((sizeof(test_array) / sizeof(int)))
 
 /*
@@ -110,6 +110,7 @@ int widthOfBinaryTree(struct TreeNode *root) {
             if(result < temp_res) {
                 result = temp_res;
             }
+            printf("%ld, %ld => %d\n", left, right, temp_res);
         }
 
     }
