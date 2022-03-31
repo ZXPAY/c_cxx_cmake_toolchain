@@ -19,8 +19,6 @@ struct ListNode *generate_node(int val) {
     return node;
 }
 
-
-
 #define HASH_SIZE   (1200)
 void add_to_hash(size_t *map, size_t addr) {
     // Using open addressing to collect map
