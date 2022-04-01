@@ -13,12 +13,13 @@ void swap(char *a, char *b) {
     *a = *b;
     *b = temp;
 }
+
 void reverseString(char* s, int sSize){
-    int right_index = sSize-1;
     for(int i=0;i<sSize>>1;i++) {
-        swap(&s[i], &s[right_index--]);
+        swap(&s[i], &s[sSize-i-1]);
     } 
 }
+
 
 int main(int argc, char *argv[]) {
     // for(int i=0;i<argc;i++) {
