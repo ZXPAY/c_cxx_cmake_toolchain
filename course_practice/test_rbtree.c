@@ -260,6 +260,223 @@ redblack_tree_t *add_node(redblack_tree_t *root, int val) {
     return root;
 }
 
+redblack_tree_t *get_sibling(redblack_tree_t *node) {
+    if(node->parent != NULL) {
+        if(node->parent->right == node) {
+            return node->parent->left;
+        }
+        else if(node->parent->left == node) {
+            return node->parent->right;
+        }
+    }
+
+    return NULL;
+}
+
+redblack_tree_t *get_sibling_near_child(redblack_tree_t *node) {
+    if(node->parent != NULL) {
+        if(node->parent->right == node) {
+            if(node->parent->left != NULL) {
+                return node->parent->left->right;
+            }
+        }
+        else if(node->parent->left == node) {
+            if(node->parent->right != NULL) {
+                return node->parent->right->left;
+            }
+        }
+    }
+
+    return NULL;
+}
+
+redblack_tree_t *get_sibling_far_child(redblack_tree_t *node) {
+    if(node->parent != NULL) {
+        if(node->parent->right == node) {
+            if(node->parent->left != NULL) {
+                return node->parent->left->left;
+            }
+        }
+        else if(node->parent->left == node) {
+            if(node->parent->right != NULL) {
+                return node->parent->right->right;
+            }
+        }
+    }
+
+    return NULL;
+}
+
+void rotate_delete(redblack_tree_t **root, redblack_tree_t *node, redblack_tree_t *node_to_rotate) {
+    if(node_to_rotate == node->parent) {
+        redblack_tree_t *parent_before_rotate = node->parent;
+        redblack_tree_t *parent_after_rotate = NULL;
+        if(node->parent->left == node) {
+            parent_after_rotate = rotate_left(node->parent);
+        }
+        else if(node->parent->right == node) {
+            parent_after_rotate = rotate_right(node->parent);
+        }
+        if((*root) == parent_before_rotate) {
+            *root = parent_after_rotate;
+        }
+    }
+    else if(node_to_rotate == get_sibling(node)) {
+        redblack_tree_t *sibling = get_sibling(node);
+        redblack_tree_t *sibling_near_child = get_sibling_near_child(node);
+        if(sibling->left == sibling_near_child) {
+            rotate_right(sibling);
+        }
+        else if(sibling->right == sibling_near_child) {
+            rotate_left(sibling);
+        }
+    }
+}
+
+void balance_before_delete(redblack_tree_t **root, redblack_tree_t *node) {
+    redblack_tree_t *parent = node->parent;
+    redblack_tree_t *sibling = get_sibling(node);
+    redblack_tree_t *sibling_near_child = get_sibling_near_child(node);
+    redblack_tree_t *sibling_far_child = get_sibling_far_child(node);
+
+    if(is_red(node)){
+        printf("===== Delete Type A =====\n");
+        return;
+    }
+    
+    if(node == (*root)) {
+        printf("===== Delete Type B =====\n");
+        node->color = RBTREE_BLACK;
+        return;
+    }
+
+    if(is_red(sibling)) {
+        printf("===== Delete Type C - Case 1 =====\n");
+        sibling->color = RBTREE_BLACK;
+        parent->color = RBTREE_RED;
+        rotate_delete(root, node, parent);
+        balance_before_delete(root, node);  // go to next round
+        return;
+    }
+
+    if(is_black(sibling)) {
+        if(is_black(sibling_near_child) && is_black(sibling_far_child)) {
+            if(is_red(parent)) {
+                printf("===== Delete Type C - Case 2.1 =====\n");
+                sibling->color = RBTREE_RED;
+                parent->color = RBTREE_BLACK;
+            }
+            else if(is_black(parent)) {
+                printf("===== Delete Type C - Case 2.2 =====\n");
+                sibling->color = RBTREE_RED;
+                balance_before_delete(root, parent); // go to next round
+            }
+        }
+        else if(is_black(sibling_far_child) && is_red(sibling_near_child)) {
+            printf("===== Delete Type C - Case 3 =====\n");
+            sibling_near_child->color = RBTREE_BLACK;
+            sibling->color = RBTREE_RED;
+            rotate_delete(root, node, sibling);
+            balance_before_delete(root, node); // go to next round (Case 4)
+        }
+        else if(is_red(sibling_far_child)) {
+            if(is_black(parent)) {
+                printf("===== Delete Type C - Case 4.1 =====\n");
+                rotate_delete(root, node, parent);
+                sibling_far_child->color = RBTREE_BLACK;
+            }
+            else if(is_red(parent)) {
+                printf("===== Delete Type C - Case 4.2 =====\n");
+                parent->color = RBTREE_BLACK;
+                sibling->color = RBTREE_RED;
+                rotate_delete(root, node, parent);
+                // printf("%d, %d\n", (*root)->right->val);
+                sibling_far_child->color = RBTREE_BLACK;
+            }
+        }
+    }
+
+}
+
+redblack_tree_t *get_min_node(redblack_tree_t *node) {
+    if(node == NULL) return NULL;
+    while(node->left != NULL) node = node->left;
+
+    return node;
+}
+
+redblack_tree_t *get_max_node(redblack_tree_t *node) {
+    if(node == NULL) return NULL;
+    while(node->right != NULL) node = node->right;
+
+    return node;
+}
+
+void swap_node_value(redblack_tree_t *node1, redblack_tree_t *node2) {
+    assert(node1 != NULL);
+    assert(node2 != NULL);
+    int temp = node1->val;
+    node1->val = node2->val;
+    node2->val = temp;
+}
+
+void delete_help2(redblack_tree_t **root, redblack_tree_t *node) {
+    if(node == (*root)) {
+        *root = NULL;
+    }
+    else if(node->parent->right == node) {
+        // free(node->parent->right);
+        node->parent->right = NULL;
+    }
+    else if(node->parent->left == node) {
+        // free(node->parent->left);
+        node->parent->left = NULL;
+    }
+}
+
+void delete_help(redblack_tree_t **root, redblack_tree_t *node, int val) {
+    if(node == NULL) return;
+
+    // find the value, delete it
+    if(val == node->val) {
+        // it's leaf node
+        if(node->left == NULL && node->right == NULL) {
+            balance_before_delete(root, node);
+            delete_help2(root, node);
+        }
+        // swap value and go to leaf node
+        else if(node->left == NULL && node->right != NULL) {
+            redblack_tree_t *node_min = get_min_node(node->right);
+            swap_node_value(node, node_min);
+            delete_help(root, node_min, val);
+        }
+        else if(node->left != NULL && node->right == NULL) {
+            redblack_tree_t *node_max = get_max_node(node->left);
+            swap_node_value(node, node_max);
+            delete_help(root, node_max, val);
+        }
+        else if(node->left != NULL && node->right != NULL) {
+            // choose left or right
+            redblack_tree_t *node_min = get_min_node(node->right);
+            swap_node_value(node, node_min);
+            delete_help(root, node_min, val);
+        }
+    }
+    else if(val < node->val) {
+        delete_help(root, node->left, val);
+    }
+    else if(val > node->val) {
+        delete_help(root, node->right, val);
+    }
+}
+
+redblack_tree_t *delete(redblack_tree_t *root, int val) {
+    if(root == NULL) return NULL;
+    delete_help(&root, root, val);
+
+    return root;
+}
+
 redblack_tree_t *build_tree(int *nums, int num_size) {
     redblack_tree_t *root = NULL;
     for(int i=0;i<num_size;i++) {
@@ -274,6 +491,18 @@ int main() {
     redblack_tree_t *root = build_tree(test_array, ARRAY_SIZE);
 
     printf("Root: %p, %d\n", root, root->val);
+
+    printf("==================== Delete ====================\n");
+
+
+    root = delete(root, 50);  // Type 4.2
+    root = delete(root, 37);  // Type 2.1
+    root = delete(root, 34);  // Type A (BST delete)
+    root = delete(root, 33);  // Type C - 1
+    root = delete(root, 18);  // Type C - 3
+    root = delete(root, 31);  // Type C - 2.2
+    root = delete(root, 22);  // Type A
+    root = delete(root, 25);  // Type B
 
 
     printf("end\n");
