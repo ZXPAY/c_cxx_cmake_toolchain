@@ -6,18 +6,22 @@
 #include <assert.h>
 #include <math.h>
 
+/* ["JFK","MUC","LHR","SFO","SJC"] */
 // char *test_tickets[4][2] = {{"MUC","LHR"},{"JFK","MUC"},{"SFO","SJC"},{"LHR","SFO"}};
 
-
+/* ["JFK","ATL","JFK","SFO","ATL","SFO"] */
 // char *test_tickets[5][2] = {{"JFK","SFO"},{"JFK","ATL"},{"SFO","ATL"},{"ATL","JFK"},{"ATL","SFO"}};
 
 /* ["JFK","AAA","JFK","CCC","JFK","BBB"] */
-char *test_tickets[5][2] = {{"JFK","AAA"},{"AAA","JFK"},{"JFK","BBB"},{"JFK","CCC"},{"CCC","JFK"}};
+char *test_tickets[5][2] = {{"JFK","AAA"},{"AAA","JFK"},{"JFK","CCC"},{"CCC","JFK"}, {"JFK","BBB"}};
 
 /* ["JFK","AAA","JFK","BBB","JFK","CCC","JFK"] */
 // char *test_tickets[6][2] = {{"JFK","AAA"},{"AAA","JFK"},{"JFK","BBB"},{"BBB","JFK"},{"JFK","CCC"},{"CCC","JFK"}};
 
-#define TICKET_SIZE (sizeof(test_tickets) / sizeof(test_tickets[0]))
+/* ["JFK","AAA","JFK","BBB","CCC","BBB","DDD"] */
+// char *test_tickets[6][2] = {{"JFK","AAA"},{"AAA","JFK"},{"JFK","BBB"},{"BBB","CCC"},{"BBB","DDD"},{"CCC","BBB"}};
+
+#define node_t_SIZE (sizeof(test_tickets) / sizeof(test_tickets[0]))
 
 
 #define MAGIC_NUM     31L
@@ -48,6 +52,7 @@ typedef struct _node_t {
 
 node_t *generate_itinerary(long hash_val) {
     node_t *node = malloc(sizeof(node_t));
+    for(int i=0;i<NEXT_MAX;i++) node->next[i] = NULL;
     node->hash_val = hash_val;
     node->next_count = 0;
     node->i_count = 0;
@@ -108,7 +113,7 @@ node_t *search_in_bst(node_t *node, long hash_val) {
     }
 }
 
-bool laxical_determine(char *s1, char *s2) {
+int laxical_determine(char *s1, char *s2) {
     if(s1[0] < s2[0]) return 1;
     else return -1;
 
@@ -119,6 +124,12 @@ bool laxical_determine(char *s1, char *s2) {
     else return -1;
 
     return 1;
+}
+
+void swap_node(node_t **n1, node_t **n2) {
+    node_t *temp = *n1;
+    *n1 = *n2;
+    *n2 = temp;
 }
 
 void print_bst(node_t *node) {
@@ -139,6 +150,38 @@ void copy_help(node_t *node, char ***result, int *count) {
     copy_help(node->next[node->i_count++], result, count);
 }
 
+node_t *buf[100];
+int i_buf = 0;
+bool fg = 0;
+bool backtracking(node_t *node, bool *visited, int index) {
+    if(fg) {
+        visited[index] = true;
+    }
+    fg = 1;
+    
+    buf[i_buf++] = node;
+
+    printf("%d=> %s\n", index, node->string_p);
+    // for(int i=0;i<i_buf;i++) {
+        // printf("%s, ", node->string_p);
+    // }
+    // printf("\n");
+
+    if(index == 6) {
+        printf("done\n");
+    }
+    else {
+        for(int i=0;i<node->next_count;i++) {
+            if(!visited[i]) {
+                backtracking(node->next[i], visited, i);
+            }
+        }
+    }
+    i_buf--;
+    visited[index] = false;
+}
+
+
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
@@ -157,7 +200,7 @@ char **findItinerary(char ***tickets, int ticketsSize, int *ticketsColSize, int 
     int node_count = 0;
 
     /* main logic */
-    for(int i=0;i<TICKET_SIZE;i++) {
+    for(int i=0;i<ticketsSize;i++) {
         long from_hash = hash(tickets[i][0]);
         long to_hash = hash(tickets[i][1]);
 
@@ -180,8 +223,14 @@ char **findItinerary(char ***tickets, int ticketsSize, int *ticketsColSize, int 
         to_node->string_p = tickets[i][1];
 
         if(from_hash == start_hash) st_itinerary = from_node;
-
+        
         from_node->next[from_node->next_count++] = to_node;
+        if(from_node->next_count > 1) {
+            if(laxical_determine(from_node->next[from_node->next_count-2]->string_p, from_node->next[from_node->next_count-1]->string_p) == -1) {
+                swap_node(&from_node->next[from_node->next_count-2], &from_node->next[from_node->next_count-1]);
+            }
+        }
+
     }
 
     if(st_itinerary == NULL) return NULL;
@@ -194,11 +243,15 @@ char **findItinerary(char ***tickets, int ticketsSize, int *ticketsColSize, int 
     for(int i=0;i<temp->next_count;i++) {
         printf("%p= %s\n", temp->next[i], temp->next[i]->string_p);
     }
+    for(int i=0;i<temp->next[0]->next_count;i++) {
+        printf("2%p= %s\n", temp->next[0]->next[i], temp->next[0]->next[i]->string_p);
+    }
 
-    // sorting
-    // TODO
 
-    copy_help(st_itinerary, &result, &col);
+    bool *visits = malloc(100*sizeof(bool));
+    memset(visits, 0, 100*sizeof(bool));
+    backtracking(st_itinerary, visits, 0);
+    // copy_help(st_itinerary, &result, &col);
     
     *ticketsColSize = col;
     *returnSize = col;
@@ -212,8 +265,8 @@ int main(int argc, char *argv[]) {
     //     printf("arg[%d]: %s\n", i, argv[i]);
     // }
 
-    char ***tickets = malloc(TICKET_SIZE*sizeof(char **));
-    for(int i=0;i<TICKET_SIZE;i++) {
+    char ***tickets = malloc(node_t_SIZE*sizeof(char **));
+    for(int i=0;i<node_t_SIZE;i++) {
         tickets[i] = malloc(2*sizeof(char *));
         for(int j=0;j<2;j++) {
             tickets[i][j] = malloc(3*sizeof(char));
@@ -223,7 +276,7 @@ int main(int argc, char *argv[]) {
 
     int col_size;
     int return_size;
-    char **result = findItinerary(tickets, TICKET_SIZE, &col_size, &return_size);
+    char **result = findItinerary(tickets, node_t_SIZE, &col_size, &return_size);
     printf("==== %p\n", result);
     printf("size: %d\n", return_size);
 
