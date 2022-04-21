@@ -41,8 +41,8 @@ long hash(char *charater) {
 
 #define NEXT_MAX 100
 typedef struct _node_t {
-    struct _node_t *next[NEXT_MAX];
-    int next_count;
+    struct _node_t *adj_list[NEXT_MAX];
+    int adj_count;
     int i_count;
     struct _node_t *left;
     struct _node_t *right;
@@ -52,9 +52,9 @@ typedef struct _node_t {
 
 node_t *generate_itinerary(long hash_val) {
     node_t *node = malloc(sizeof(node_t));
-    for(int i=0;i<NEXT_MAX;i++) node->next[i] = NULL;
+    for(int i=0;i<NEXT_MAX;i++) node->adj_list[i] = NULL;
     node->hash_val = hash_val;
-    node->next_count = 0;
+    node->adj_count = 0;
     node->i_count = 0;
     node->left = NULL;
     node->right = NULL;
@@ -136,7 +136,7 @@ void print_bst(node_t *node) {
     if(node == NULL) return;
 
     print_bst(node->left);
-    printf("[%s] hash: %ld, count: %d\n", node->string_p, node->hash_val, node->next_count);
+    printf("[%s] hash: %ld, count: %d\n", node->string_p, node->hash_val, node->adj_count);
     print_bst(node->right);
 }
 
@@ -146,39 +146,35 @@ void copy_help(node_t *node, char ***result, int *count) {
     memcpy((*result)[*count], node->string_p, 3*sizeof(char));
     (*count)++;
 
-    if(node->i_count >= node->next_count) return;
-    copy_help(node->next[node->i_count++], result, count);
+    if(node->i_count >= node->adj_count) return;
+    copy_help(node->adj_list[node->i_count++], result, count);
 }
 
 node_t *buf[100];
 int i_buf = 0;
-bool fg = 0;
 bool backtracking(node_t *node, bool *visited, int index) {
-    if(fg) {
-        visited[index] = true;
-    }
-    fg = 1;
-    
+    visited[index] = true;
     buf[i_buf++] = node;
 
     printf("%d=> %s\n", index, node->string_p);
-    // for(int i=0;i<i_buf;i++) {
-        // printf("%s, ", node->string_p);
-    // }
-    // printf("\n");
+    for(int i=0;i<i_buf;i++) {
+        printf("%s, ", node->string_p);
+    }
+    printf("\n");
 
     if(index == 6) {
         printf("done\n");
     }
     else {
-        for(int i=0;i<node->next_count;i++) {
+        for(int i=0;i<node->adj_count;i++) {
             if(!visited[i]) {
-                backtracking(node->next[i], visited, i);
+                backtracking(node->adj_list[i], visited, i);
             }
         }
     }
-    i_buf--;
+    // i_buf--;
     visited[index] = false;
+
 }
 
 
@@ -224,10 +220,10 @@ char **findItinerary(char ***tickets, int ticketsSize, int *ticketsColSize, int 
 
         if(from_hash == start_hash) st_itinerary = from_node;
         
-        from_node->next[from_node->next_count++] = to_node;
-        if(from_node->next_count > 1) {
-            if(laxical_determine(from_node->next[from_node->next_count-2]->string_p, from_node->next[from_node->next_count-1]->string_p) == -1) {
-                swap_node(&from_node->next[from_node->next_count-2], &from_node->next[from_node->next_count-1]);
+        from_node->adj_list[from_node->adj_count++] = to_node;
+        if(from_node->adj_count > 1) {
+            if(laxical_determine(from_node->adj_list[from_node->adj_count-2]->string_p, from_node->adj_list[from_node->adj_count-1]->string_p) == -1) {
+                swap_node(&from_node->adj_list[from_node->adj_count-2], &from_node->adj_list[from_node->adj_count-1]);
             }
         }
 
@@ -240,11 +236,11 @@ char **findItinerary(char ***tickets, int ticketsSize, int *ticketsColSize, int 
     int col = 0;
     node_t *temp = st_itinerary;
     
-    for(int i=0;i<temp->next_count;i++) {
-        printf("%p= %s\n", temp->next[i], temp->next[i]->string_p);
+    for(int i=0;i<temp->adj_count;i++) {
+        printf("%p= %s\n", temp->adj_list[i], temp->adj_list[i]->string_p);
     }
-    for(int i=0;i<temp->next[0]->next_count;i++) {
-        printf("2%p= %s\n", temp->next[0]->next[i], temp->next[0]->next[i]->string_p);
+    for(int i=0;i<temp->adj_list[0]->adj_count;i++) {
+        printf("2%p= %s\n", temp->adj_list[0]->adj_list[i], temp->adj_list[0]->adj_list[i]->string_p);
     }
 
 
