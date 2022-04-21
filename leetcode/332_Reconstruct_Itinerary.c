@@ -10,10 +10,10 @@
 // char *test_tickets[4][2] = {{"MUC","LHR"},{"JFK","MUC"},{"SFO","SJC"},{"LHR","SFO"}};
 
 /* ["JFK","ATL","JFK","SFO","ATL","SFO"] */
-// char *test_tickets[5][2] = {{"JFK","SFO"},{"JFK","ATL"},{"SFO","ATL"},{"ATL","JFK"},{"ATL","SFO"}};
+char *test_tickets[5][2] = {{"JFK","SFO"},{"JFK","ATL"},{"SFO","ATL"},{"ATL","JFK"},{"ATL","SFO"}};
 
 /* ["JFK","AAA","JFK","CCC","JFK","BBB"] */
-char *test_tickets[5][2] = {{"JFK","AAA"},{"AAA","JFK"},{"JFK","CCC"},{"CCC","JFK"}, {"JFK","BBB"}};
+// char *test_tickets[5][2] = {{"JFK","AAA"},{"AAA","JFK"},{"JFK","CCC"},{"CCC","JFK"}, {"JFK","BBB"}};
 
 /* ["JFK","AAA","JFK","BBB","JFK","CCC","JFK"] */
 // char *test_tickets[6][2] = {{"JFK","AAA"},{"AAA","JFK"},{"JFK","BBB"},{"BBB","JFK"},{"JFK","CCC"},{"CCC","JFK"}};
@@ -23,7 +23,6 @@ char *test_tickets[5][2] = {{"JFK","AAA"},{"AAA","JFK"},{"JFK","CCC"},{"CCC","JF
 
 #define node_t_SIZE (sizeof(test_tickets) / sizeof(test_tickets[0]))
 
-
 #define MAGIC_NUM     31L
 #define MODULE_NUM    1000007L
 long mod(long n, long m) {
@@ -32,14 +31,19 @@ long mod(long n, long m) {
 
 long hash(char *charater) {
     long hash_value = 0;
-    for(int i=0;i<strlen(charater);i++) {
-        hash_value += MAGIC_NUM * charater[i];
-        hash_value = mod(hash_value, MODULE_NUM);
-    }
+    hash_value += MAGIC_NUM * charater[0];
+    hash_value = mod(hash_value, MODULE_NUM);
+    
+    hash_value += MAGIC_NUM * MAGIC_NUM * charater[1];
+    hash_value = mod(hash_value, MODULE_NUM);
+    
+    hash_value += MAGIC_NUM * MAGIC_NUM * MAGIC_NUM * charater[2];
+    hash_value = mod(hash_value, MODULE_NUM);
+
     return hash_value;
 }
 
-#define NEXT_MAX 100
+#define NEXT_MAX 50
 typedef struct _node_t {
     struct _node_t *adj_list[NEXT_MAX];
     int adj_count;
@@ -114,16 +118,16 @@ node_t *search_in_bst(node_t *node, long hash_val) {
 }
 
 int laxical_determine(char *s1, char *s2) {
-    if(s1[0] < s2[0]) return 1;
-    else return -1;
+    for (int i=0;i<3;i++) {
+        if (s1[i] < s2[i]) {
+            return 0;
+        }
+        else if (s1[i] > s2[i]) {
+            return 1;
+        }
+    }
 
-    if(s1[1] < s2[1]) return 1;
-    else return -1;
-
-    if(s1[2] < s2[2]) return 1;
-    else return -1;
-
-    return 1;
+    return 0;
 }
 
 void swap_node(node_t **n1, node_t **n2) {
@@ -140,41 +144,14 @@ void print_bst(node_t *node) {
     print_bst(node->right);
 }
 
-void copy_help(node_t *node, char ***result, int *count) {
-    int index = 0;
-    
+void traverse_graph(node_t *node, char ***result, int *count) {
+    while(node->i_count < node->adj_count) {
+        traverse_graph(node->adj_list[node->i_count++], result, count);
+    }
+    // post-order
+    // printf("traverse: %s\n", node->string_p);
     memcpy((*result)[*count], node->string_p, 3*sizeof(char));
     (*count)++;
-
-    if(node->i_count >= node->adj_count) return;
-    copy_help(node->adj_list[node->i_count++], result, count);
-}
-
-node_t *buf[100];
-int i_buf = 0;
-bool backtracking(node_t *node, bool *visited, int index) {
-    visited[index] = true;
-    buf[i_buf++] = node;
-
-    printf("%d=> %s\n", index, node->string_p);
-    for(int i=0;i<i_buf;i++) {
-        printf("%s, ", node->string_p);
-    }
-    printf("\n");
-
-    if(index == 6) {
-        printf("done\n");
-    }
-    else {
-        for(int i=0;i<node->adj_count;i++) {
-            if(!visited[i]) {
-                backtracking(node->adj_list[i], visited, i);
-            }
-        }
-    }
-    // i_buf--;
-    visited[index] = false;
-
 }
 
 
@@ -203,9 +180,8 @@ char **findItinerary(char ***tickets, int ticketsSize, int *ticketsColSize, int 
         node_t *from_node = search_in_bst(bst_root, from_hash);
         node_t *to_node = search_in_bst(bst_root, to_hash);
 
-        printf("[%s]: %ld,  [%s]: %ld\n", tickets[i][0], from_hash, tickets[i][1], to_hash);
+        // printf("[%s]: %ld,  [%s]: %ld\n", tickets[i][0], from_hash, tickets[i][1], to_hash);
         // printf("%p, %p\n", from_node, to_node);
-
         if(NULL == from_node) {
             bst_root = insert_bst(bst_root, from_hash, &from_node);
             node_count++;
@@ -221,40 +197,32 @@ char **findItinerary(char ***tickets, int ticketsSize, int *ticketsColSize, int 
         if(from_hash == start_hash) st_itinerary = from_node;
         
         from_node->adj_list[from_node->adj_count++] = to_node;
-        if(from_node->adj_count > 1) {
-            if(laxical_determine(from_node->adj_list[from_node->adj_count-2]->string_p, from_node->adj_list[from_node->adj_count-1]->string_p) == -1) {
-                swap_node(&from_node->adj_list[from_node->adj_count-2], &from_node->adj_list[from_node->adj_count-1]);
+        for(int k=from_node->adj_count-2;k>=0;k--) {
+            if(laxical_determine(from_node->adj_list[k]->string_p, from_node->adj_list[k+1]->string_p)) {
+                swap_node(&from_node->adj_list[k], &from_node->adj_list[k+1]);
             }
         }
-
     }
 
     if(st_itinerary == NULL) return NULL;
-    print_bst(bst_root);
-    
+    // print_bst(bst_root);
+
     /* traverse the itinerary */
     int col = 0;
-    node_t *temp = st_itinerary;
+    traverse_graph(st_itinerary, &result, &col);
     
-    for(int i=0;i<temp->adj_count;i++) {
-        printf("%p= %s\n", temp->adj_list[i], temp->adj_list[i]->string_p);
+    /* Reverse the result */
+    for(int i=0;i<col>>1;i++) {
+        char *temp = result[i];
+        result[i] = result[col-i-1];
+        result[col-i-1] = temp;
     }
-    for(int i=0;i<temp->adj_list[0]->adj_count;i++) {
-        printf("2%p= %s\n", temp->adj_list[0]->adj_list[i], temp->adj_list[0]->adj_list[i]->string_p);
-    }
-
-
-    bool *visits = malloc(100*sizeof(bool));
-    memset(visits, 0, 100*sizeof(bool));
-    backtracking(st_itinerary, visits, 0);
-    // copy_help(st_itinerary, &result, &col);
     
     *ticketsColSize = col;
     *returnSize = col;
 
     return result;
 }
-
 
 int main(int argc, char *argv[]) {
     // for(int i=0;i<argc;i++) {
