@@ -6,7 +6,8 @@
 #include <assert.h>
 #include <math.h>
 
-int test_nums[] = {1, 2, 3};
+int test_nums[] = {1, 2, 3, 4};
+// int test_nums[] = {1};
 #define ARRAY_SIZE (sizeof(test_nums) / sizeof(int))
 
 
@@ -44,19 +45,24 @@ void permute_help(int **result, int *i_result, int *nums, int numsSize, int l, i
     }    
 }
 
+
 int **permute(int *nums, int numsSize, int *returnSize, int **returnColumnSizes) {
-    int **result = malloc(sizeof(int *)*numsSize*(numsSize-1));
-    for(int i=0;i<(numsSize*(numsSize-1));i++) {
+    int permute_size = 1;
+    for(int i=numsSize;i>=1;i--) {
+        permute_size *= i;
+    }
+    int **result = malloc(sizeof(int *)*permute_size);
+    for(int i=0;i<(permute_size);i++) {
         result[i] = malloc(sizeof(int)*numsSize);
     }
 
-    int *return_col = malloc(sizeof(int)*numsSize*(numsSize-1));
-    for(int i=0;i<numsSize*(numsSize-1);i++) return_col[i] = numsSize;
+    int *return_col = malloc(sizeof(int)*permute_size);
+    for(int i=0;i<permute_size;i++) return_col[i] = numsSize;
     *returnColumnSizes = return_col;
-    *returnSize = numsSize*(numsSize-1);
 
     int i_result = 0;
     permute_help(result, &i_result, nums, numsSize, 0, numsSize-1);
+    *returnSize = i_result;
 
     return result;
 }
