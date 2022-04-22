@@ -21,30 +21,27 @@ Given an array nums of distinct integers, return all the possible permutations. 
  */
 
 
-void permute_help(int **result, int *nums, int numsSize, int *buf, int i_buf, int index) {
-    
-    for(int i=0;i<i_buf;i++) {
-        printf("%d, ", buf[i]);
-    }
-    printf("\n");
-    
-    for(int i=0;i<numsSize;i++) {
-        bool fg = false;
-        for(int j=0;j<i_buf;j++) {
-            if(nums[i] == buf[j]) fg = true;
-        }
-        if(fg) continue;
-        buf[i_buf++] = nums[i];
-        permute_help(result, nums, numsSize, buf, i_buf, index+1);
-        i_buf--;
-    }
-
-}
-
 void swap(int *a, int *b) {
     int temp = *a;
     *a = *b;
     *b = temp;
+}
+
+void permute_help(int **result, int *i_result, int *nums, int numsSize, int l, int r) {
+    if(l == r) {
+        for(int i=0;i<numsSize;i++) {
+            printf("%d, ", nums[i]);
+        }
+        printf("\n");
+        memcpy(result[(*i_result)++], nums, numsSize*sizeof(int));
+    }
+    else {
+        for(int i=l;i<=r;i++) {
+            swap(&nums[l], &nums[i]);
+            permute_help(result, i_result, nums, numsSize, l+1, r);
+            swap(&nums[l], &nums[i]);
+        }
+    }    
 }
 
 int **permute(int *nums, int numsSize, int *returnSize, int **returnColumnSizes) {
@@ -58,10 +55,8 @@ int **permute(int *nums, int numsSize, int *returnSize, int **returnColumnSizes)
     *returnColumnSizes = return_col;
     *returnSize = numsSize*(numsSize-1);
 
-    int *buf = malloc(3*sizeof(int));
-    int i_buf = 0;
-
-    permute_help(result, nums, numsSize, buf, i_buf, 0);
+    int i_result = 0;
+    permute_help(result, &i_result, nums, numsSize, 0, numsSize-1);
 
     return result;
 }
