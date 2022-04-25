@@ -11,7 +11,7 @@ int test_arr[] = {1, 2, 3};
 int count = 0;
 
 typedef bool (*func_hasNext_t)(void);
-typedef int (*func_next_t)();
+typedef int (*func_next_t)(void);
 
 bool arr_is_has_next() {
     if(count < ARRAY_SIZE) return true;
