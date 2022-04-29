@@ -20,7 +20,7 @@ int test_pairs[][2] = {{0, 3}, {1, 2}, {0, 2}};
 int find_root(int *parent, int a) {
     if (a == parent[a])
         return a;
-    return parent[a] = Find(parent[a]);
+    return parent[a] = find_root(parent[a]);
 }
 
 void swap(char *a, char *b) {
