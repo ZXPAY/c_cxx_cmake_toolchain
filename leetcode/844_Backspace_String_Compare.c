@@ -9,18 +9,18 @@
 char test_s[] = "ab#c";
 char test_t[] = "ad#c";
 
-int trim_backspace(char **s, int len) {
+int trim_backspace(char *s, int len) {
     int i_s = 0;
     for(int i=0;i<len;i++) {
-        if((*s)[i] == '#') {
+        if(s[i] == '#') {
             i_s--;
             if(i_s < 0) i_s = 0;
         }
         else {
-            (*s)[i_s++] = (*s)[i];
+            s[i_s++] = s[i];
         }
     }
-    (*s)[i_s] = '\0';
+    s[i_s] = '\0';
 
     return i_s;
 }
