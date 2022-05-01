@@ -29,8 +29,8 @@ bool backspaceCompare(char *s, char *t) {
     int len_s = strlen(s);
     int len_t = strlen(t);
 
-    int count_s = trim_backspace(&s, len_s);
-    int count_t = trim_backspace(&t, len_t);
+    int count_s = trim_backspace(s, len_s);
+    int count_t = trim_backspace(t, len_t);
 
     printf("%s, %s\n", s, t);
 
