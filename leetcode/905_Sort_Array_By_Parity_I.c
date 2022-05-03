@@ -11,7 +11,7 @@ You may return any answer array that satisfies this condition.
 
 int test_array[] = {3, 1, 2, 4};
 
-int *sortArrayByParity(int *nums, int numsSize, int *returnSize){
+int *sortArrayByParity(int *nums, int numsSize, int *returnSize) {
     int *sort_par_arr = (int *)malloc(numsSize * sizeof(int));
     int odd_cnt = numsSize-1;
     int even_cnt = 0;
