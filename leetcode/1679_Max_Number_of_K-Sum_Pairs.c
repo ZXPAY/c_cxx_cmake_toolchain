@@ -17,6 +17,62 @@ int test_array[] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};    // K=2, ans=6
 
 #define ARRAY_SIZE (sizeof(test_array) / sizeof(int))
 
+/* Linear hash */
+#define HASH_SIZE (1000000000 / 32)
+/* Using hash mapping */
+int maxOperations_linear_hash(int *nums, int numsSize, int k) {
+    uint32_t *linear_hash = malloc(HASH_SIZE*sizeof(uint32_t));
+    memset(linear_hash, 0, HASH_SIZE*sizeof(uint32_t));
+
+    int count = 0;
+    /* X + Y = K => X = K-Y, search X or K-Y -> Get the same value */
+    bool fg = 0;
+    int cc = 0;
+    for(int i=0;i<numsSize||fg;i++) {
+        if(i == numsSize) i = 0;
+        assert(nums[i] <= 1000000000UL);
+        int k_y = k - nums[i];
+        if(cc >= numsSize) break;
+        cc++;
+        if(k_y <= 0 || k_y >= k || nums[i] >= k || nums[i] == 0) continue;
+        cc--;
+        int i_hash_n = (k_y - 1) / 32;
+        int i_hash_k = (k_y - 1) % 32;
+
+        if(linear_hash[i_hash_n] & (1UL<<i_hash_k)) {
+            count++;
+            /* Clear k_y in hash */
+            linear_hash[i_hash_n] &= ~(1UL<<i_hash_k);
+            nums[i] = 0;
+            cc = 0;
+        }
+        else {
+            cc++;
+            /* Insert x(nums[i]) into hash */
+            i_hash_n = (nums[i] - 1) / 32;
+            i_hash_k = (nums[i] - 1) % 32;
+            if(linear_hash[i_hash_n] & (1UL<<i_hash_k)) {
+                fg = 1;
+                continue;
+            }
+            else {
+                linear_hash[i_hash_n] |= (1UL<<i_hash_k);
+                nums[i] = 0;
+            }
+        }
+    }
+    
+    
+    // for(int i=0;i<numsSize;i++) {
+    //     printf("%d,", nums[i]);
+    // }
+    // printf("\n");
+
+    return count;
+}
+
+
+
 /* Handle collision */
 typedef struct _linklist_t {
     struct _linklist_t *next;
@@ -75,7 +131,7 @@ int maxOperations(int *nums, int numsSize, int k) {
     /* X + Y = K => X = K-Y, search X or K-Y -> Get the same value */
     for(int i=0;i<numsSize;i++) {
         int k_y = k - nums[i];
-        if(k_y < 0 || k_y >= k || nums[i] >= k) continue;
+        if(k_y <= 0 || k_y >= k || nums[i] >= k) continue;
         if(search_and_remove(map, k_y, nums[i], numsSize)) {
             count++;
         }
