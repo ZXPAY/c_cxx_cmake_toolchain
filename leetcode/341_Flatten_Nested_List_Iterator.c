@@ -147,8 +147,10 @@ bool nestedIterHasNext(struct NestedIterator *iter) {
 }
 
 int nestedIterNext(struct NestedIterator *iter) {
-    if(iter->index<0) return -1;
-    return NestedIntegerGetInteger(iter->buf[iter->index--]);
+    if(nestedIterHasNext(iter)) {
+        return NestedIntegerGetInteger(iter->buf[iter->index--]);
+    }
+    return -1;
 }
 
 /** Deallocates memory previously allocated for the iterator */
