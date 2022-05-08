@@ -147,6 +147,7 @@ bool nestedIterHasNext(struct NestedIterator *iter) {
 }
 
 int nestedIterNext(struct NestedIterator *iter) {
+    if(iter->index<0) return -1;
     return NestedIntegerGetInteger(iter->buf[iter->index--]);
 }
 
