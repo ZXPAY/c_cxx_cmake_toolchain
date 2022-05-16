@@ -1,230 +1,131 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdlib.h>
-#include <string.h>
 #include <stdbool.h>
-
-/*
-Given an n x n binary matrix grid, return the length of the shortest clear path in the matrix. If there is no clear path, return -1.
-
-A clear path in a binary matrix is a path from the top-left cell (i.e., (0, 0)) to the bottom-right cell (i.e., (n - 1, n - 1)) such that:
-
-All the visited cells of the path are 0.
-All the adjacent cells of the path are 8-directionally connected (i.e., they are different and they share an edge or a corner).
-The length of a clear path is the number of visited cells of this path.
-*/
-
-// const int test_grid[3][3] = {  // answer 4
-//     {0,0,0},
-//     {1,1,0},
-//     {1,1,0}
-// };
-// const int test_grid[3][3] = {   // answer -1
-//     {1,0,0},
-//     {1,1,0},
-//     {1,1,0}
-// };
-// const int test_grid[3][3] = {   // answer -1
-//     {0,0,0},
-//     {1,1,0},
-//     {1,1,1}
-// };
-// const int test_grid[3][3] = {   // answer 4
-//     {0,0,0},
-//     {0,1,0},
-//     {0,0,0}
-// };
-
-const int test_grid[6][6] = {   // answer 14
-    {0,1,1,0,0,0},
-    {0,1,0,1,1,0},
-    {0,1,1,0,1,0},
-    {0,0,0,1,1,0},
-    {1,1,1,1,1,0},
-    {1,1,1,1,1,0},
-};
-
-#define N  6
+#include <stdint.h>
+#include <string.h>
+#include <assert.h>
+#include <math.h>
 
 
-typedef struct _pos_t {
-    int r;
-    int c;
-} pos_t;
-typedef struct _save_pos {
-    pos_t *pos;
-    int len;
-} save_pos_t;
+#define M 3
+#define N 3
+int matrix[3][3] = {{0,0,0},{1,1,0},{1,1,0}};
 
-int isInpos(save_pos_t *sv_pos, int row, int col) {
-    for(int i=0;i<sv_pos->len;i++) {
-        if(sv_pos->pos[i].r == row && sv_pos->pos[i].c == col) {
-            return 1;
-        }
-    }
-    return 0;
+typedef struct _pair_t {
+    int x;
+    int y;
+} pair_t;
+
+typedef pair_t queue_data_t;
+
+typedef enum queue_er_em {
+    QUEUE_OK = 0,
+    QUEUE_EMPTY = 1,
+    QUEUE_FULL = 2,
+    QUEUE_ERROR = 0xFF
+} queue_er_em;
+
+typedef struct _queue_t {
+    queue_data_t *value;
+    int buf_size;
+    int offer_i;
+    int poll_i;
+    int count;
+} queue_t;
+
+queue_t *create_queue(int buf_size) {
+    queue_t *queue = malloc(sizeof(queue_t));
+    memset(queue, 0, sizeof(queue_t));
+    queue->buf_size = buf_size;
+    queue->value = malloc(buf_size*sizeof(queue_data_t));
+    memset(queue->value, 0, buf_size*sizeof(queue_data_t));
+
+    return queue;
 }
 
-void save_pos(save_pos_t *sv_pos, int row, int col) {
-    sv_pos->len++;
-    sv_pos->pos = (pos_t *)realloc(sv_pos->pos, sizeof(pos_t)*sv_pos->len);
-    sv_pos->pos[sv_pos->len-1].r = row;
-    sv_pos->pos[sv_pos->len-1].c = col;
+queue_er_em offer_queue(queue_t *queue, queue_data_t *tdata) {
+    assert(queue->count < queue->buf_size);
+    if(queue->count >= queue->buf_size) return QUEUE_ERROR;
+    memcpy(&queue->value[queue->offer_i++], tdata, sizeof(queue_data_t));
+    if(queue->offer_i == queue->buf_size) queue->offer_i = 0;
+    queue->count++;
+    return QUEUE_OK;
 }
 
-void pop_pos(save_pos_t *sv_pos, int *prow, int *pcol) {
-    *prow = sv_pos->pos[0].r;
-    *pcol = sv_pos->pos[0].c;
-    for(int i=0;i<sv_pos->len-1;i++) {
-        sv_pos->pos[i].r = sv_pos->pos[i+1].r;
-        sv_pos->pos[i].c = sv_pos->pos[i+1].c;
-    }
-    sv_pos->len--;
-    sv_pos->pos = (pos_t *)realloc(sv_pos->pos, sizeof(pos_t)*sv_pos->len);
+queue_er_em poll_queue(queue_t *queue, queue_data_t *rdata) {
+    assert(queue->count > 0);
+    if(queue->count < 1) return QUEUE_EMPTY;
+    memcpy(rdata, &queue->value[queue->poll_i++], sizeof(queue_data_t));
+    if(queue->poll_i == queue->buf_size) queue->poll_i = 0;
+    queue->count--;
+    return QUEUE_OK;
 }
 
-void clean_pos(save_pos_t *sv_pos) {
-    sv_pos->len = 0;
-    free(sv_pos->pos);
+inline int get_queue_data_count(queue_t *queue) {
+    return queue->count;
 }
 
-save_pos_t *search_nodes(int **grid, int row, int col, int gridSize) {
-    save_pos_t *sv_pos = (save_pos_t *)malloc(sizeof(save_pos_t));
-    sv_pos->len = 0;
-    sv_pos->pos = NULL;
-
-    // eight nearest neighbors
-    int or = row;
-    int oc = col;
-    int nr = row - 1;
-    int nc = col - 1;
-    int pr = row + 1;
-    int pc = col + 1;
-
-    // up
-    if(nr >= 0) {
-        if(grid[nr][oc] == 0) {
-            // continue;
-            save_pos(sv_pos, nr, oc);
-        }
-    }
-    // down
-    if(pr < gridSize) {
-        if(grid[pr][oc] == 0) {
-            // continue;
-            save_pos(sv_pos, pr, oc);
-        }
-    }
-    // righ
-    if(pc < gridSize) {
-        if(grid[or][pc] == 0) {
-            // continue;
-            save_pos(sv_pos, or, pc);
-        }
-    }
-    // left
-    if(nc >= 0) {
-        if(grid[or][nc] == 0) {
-            // continue;
-            save_pos(sv_pos, or, nc);
-        }
-    }
-    // up-left
-    if(nr >= 0 && nc >= 0) {
-        if(grid[nr][nc] == 0) {
-            // continue;
-            save_pos(sv_pos, nr, nc);
-        }
-    }
-    // up-right
-    if(nr >= 0 && pc < gridSize) {
-        if(grid[nr][pc] == 0) {
-            // continue;
-            save_pos(sv_pos, nr, pc);
-        }
-    }
-    // down-left
-    if(pr < gridSize && nc >= 0) {
-        if(grid[pr][nc] == 0) {
-            // continue;
-            save_pos(sv_pos, pr, nc);
-        }
-    }
-    // down-right
-    if(pr < gridSize && pc < gridSize) {
-        if(grid[pr][pc] == 0) {
-            // continue;
-            save_pos(sv_pos, pr, pc);
-        }
-    }
-    return sv_pos;
+bool is_queue_empty(queue_t *queue) {
+    return !(queue->count!=0);
 }
 
-int bfs_find_short(int **grid, int gridSize) {
-    int r = 0, c = 0;
-    save_pos_t seen = {
-        .len = 0,
-        .pos = NULL
+int shortestPathBinaryMatrix(int **grid, int gridSize, int *gridColSize) {
+    if(grid[0][0] == 1) return -1;
+
+    queue_t *buf = create_queue(500);
+    int dir[8][2] = {{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
+
+    pair_t pair = {
+        .x = 0,
+        .y = 0
     };
-    save_pos_t sv_pos = {
-        .len = 0,
-        .pos = NULL
-    };
-    save_pos(&seen, 0, 0);
-    save_pos(&sv_pos, 0, 0);
-    int *hash_distance = (int *)malloc(sizeof(int)*gridSize*gridSize);
-    memset(hash_distance, 0, sizeof(int)*gridSize*gridSize);
-    hash_distance[0] = 1;
+    pair_t temp;
+    int count = 0;
+    offer_queue(buf, &pair);
 
-    // implement Dijkstra’s Shortest Path Algorithm
-    while(sv_pos.len > 0) {
-        pop_pos(&sv_pos, &r, &c);
-        save_pos_t *nodes = search_nodes(grid, r, c, gridSize);
+    while(!is_queue_empty(buf)) {
+        int c = get_queue_data_count(buf);
+        count++;
+        for(int i=0;i<c;i++) {
+            poll_queue(buf, &pair);
+            // printf("%d, %d\n", pair.x, pair.y);
+            if(pair.x == gridSize-1 && pair.y == gridColSize[0]-1) {
+                return count;
+            }
+            for(int j=0;j<8;j++) {
+                int tr = pair.x + dir[j][0];
+                int tc = pair.y + dir[j][1];
+                if(tr>=0 && tr<gridSize && tc>=0 && tc<gridColSize[0] && grid[tr][tc] == 0) {
+                    temp.x = tr;
+                    temp.y = tc;
+                    offer_queue(buf, &temp);
 
-        for(int i=0;i<nodes->len;i++) {
-            if(!isInpos(&seen, nodes->pos[i].r, nodes->pos[i].c)) {
-                save_pos(&sv_pos, nodes->pos[i].r, nodes->pos[i].c);
-                save_pos(&seen, nodes->pos[i].r, nodes->pos[i].c);
-                hash_distance[nodes->pos[i].r*gridSize+nodes->pos[i].c] = hash_distance[r*gridSize+c] + 1;
+                    grid[tr][tc] = -1;
+                }
             }
         }
-        free(nodes);
     }
-    for(int i=0;i<gridSize*gridSize;i++) {
-        printf("hash_distance[%d]: %d\n", i, hash_distance[i]);
-    }
-    if(hash_distance[gridSize*gridSize-1] == 0) {
-        return -1;
-    }
-    return hash_distance[gridSize*gridSize-1];
+
+    return -1;
 }
 
-int shortestPathBinaryMatrix(int** grid, int gridSize, int* gridColSize) {
-    // Using BFS (Breadth-First Search)
-    if(grid[0][0] == 1) return -1;
-    int dis = bfs_find_short(grid, gridSize);
 
-    return dis;
-}
+int main(int argc, char *argv[]) {
+    // for(int i=0;i<argc;i++) {
+    //     printf("arg[%d]: %s\n", i, argv[i]);
+    // }
 
-int main() {
-    printf("start \n");
-
-    int **grid = (int **)malloc(N*sizeof(int));
-    for(int i=0;i<N;i++) grid[i] = (int *)malloc(N*sizeof(int));
-
-    for(int i=0;i<N;i++) {
-        for(int j=0;j<N;j++) {
-            grid[i][j] = test_grid[i][j];
-            printf("%d, ", grid[i][j]);
-        }
-        printf("\n");
+    int **grid = (int **)malloc(M*sizeof(int));
+    int *grid_col = (int *)malloc(M*sizeof(int));
+    for(int i=0;i<M;i++) {
+        grid[i] = (int *)malloc(N*sizeof(int));
+        memcpy(grid[i], &matrix[i][0], N*sizeof(int));
+        grid_col[i] = 3;
     }
 
-    int gridColSize = N;
-    
-    printf("shortestPathBinaryMatrix: %d\n", shortestPathBinaryMatrix(grid, N, &gridColSize));
+    printf("result: %d\n", shortestPathBinaryMatrix(grid, M, grid_col));
 
 
-    return 0;
+
 }
+
