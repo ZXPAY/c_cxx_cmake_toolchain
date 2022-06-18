@@ -8,12 +8,15 @@
 
 char *test_words[] = {"apple", "ccbcababac", "apple", "cctc"};
 
+
+/* Link the same word_id */
 typedef struct _next_index_t {
     struct _next_index_t *next;
     int index;
     char *word;
 } next_index_t;
 
+/* word_id tree */
 typedef struct _tree_node_t {
     struct _tree_node_t *left;
     struct _tree_node_t *right;
@@ -103,6 +106,7 @@ tree_node_t *add_node(tree_node_t *node, long id, int index, char *word) {
     return node;
 }
 
+/* Use word[0] and word[-1] => word_id */
 long calculate_id(char *word) {
     int length = strlen(word);
     return (word[0]-'a'+1L) + 26L*(word[length-1]-'a'+1L);
@@ -136,6 +140,7 @@ int wordFilterF(WordFilter* obj, char *prefix, char *suffix) {
     if(next_index == NULL) return -1;
     int index = -1;
 
+    /* Handle the same word_id, check prefix and suffix that is the same */
     while(next_index != NULL) {
         if(next_index->index != -1) {
             int length = strlen(obj->words[next_index->index]);
